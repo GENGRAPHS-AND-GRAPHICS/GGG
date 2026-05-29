@@ -1,32 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BarChart3, TrendingUp, Cpu, Award } from "lucide-react";
+import { ChartColumn, Users, TrendingUp, Eye, BarChart3 } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { getMarketplaceStatsAction } from "@/app/admin/actions";
+import { formatViews } from "@/lib/utils";
 
 export function TransitionSection() {
-  const stats = [
+  const { data: dbStats = { templatesCount: 0, creatorsCount: 0, newMonthlyReports: 0, reportViews: 0 }, isLoading } = useQuery({
+    queryKey: ['marketplace-stats'],
+    queryFn: () => getMarketplaceStatsAction(),
+    staleTime: 5 * 60_000, // Stats change rarely
+  });
+
+  const statsData = [
+    {
+      icon: <ChartColumn className="w-4 h-4 text-amber-400" />,
+      value: isLoading ? "..." : formatViews(dbStats.templatesCount),
+      label: "Power BI Templates",
+      desc: "Interactive enterprise blueprints ready to deploy."
+    },
+    {
+      icon: <Users className="w-4 h-4 text-amber-400" />,
+      value: isLoading ? "..." : formatViews(dbStats.creatorsCount),
+      label: "Active Creators",
+      desc: "Verified analytics developers collaborating on layouts."
+    },
     {
       icon: <TrendingUp className="w-4 h-4 text-amber-400" />,
-      value: "150+",
-      label: "Enterprise Blueprints Deployed",
-      desc: "Interactive dashboards active across retail, finance, and operations."
+      value: isLoading ? "..." : formatViews(dbStats.newMonthlyReports),
+      label: "New Reports (30d)",
+      desc: "High-fidelity workspaces launched in the last month."
     },
     {
-      icon: <Cpu className="w-4 h-4 text-amber-400" />,
-      value: "10x",
-      label: "Cognitive Load Reduction",
-      desc: "Engineered user interfaces that deliver critical decision metrics in minutes."
-    },
-    {
-      icon: <Award className="w-4 h-4 text-amber-400" />,
-      value: "99.8%",
-      label: "Executive Satisfaction Score",
-      desc: "Highly rated by corporate officers, directors, and data analysts alike."
+      icon: <Eye className="w-4 h-4 text-amber-400" />,
+      value: isLoading ? "..." : formatViews(dbStats.reportViews),
+      label: "Total Views",
+      desc: "Cumulative visual intelligence insights rendered."
     }
   ];
 
   return (
-    <section className="relative w-full overflow-hidden py-24 bg-[linear-gradient(135deg,_#050303_0%,_#0C0806_40%,_#2A170D_100%)] border-y border-amber-950/20 selection:bg-amber-500/30">
+    <section className="relative w-full overflow-hidden py-24 bg-transparent selection:bg-amber-500/30">
       {/* Background radial highlight */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(251,191,36,0.03),_transparent_60%)] pointer-events-none" />
 
@@ -62,15 +77,15 @@ export function TransitionSection() {
           </div>
 
           {/* Right Column: Dynamic Cards Grid */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {stats.map((stat, i) => (
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {statsData.map((stat, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.05] hover:border-amber-500/20 p-5 flex flex-col justify-between space-y-4 transition-all duration-300"
+                className="group relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.05] hover:border-amber-500/20 p-4 flex flex-col justify-between space-y-4 transition-all duration-300"
               >
                 {/* Glow behind icon */}
                 <div className="absolute top-6 left-6 w-8 h-8 rounded-lg bg-amber-500/5 blur-md pointer-events-none group-hover:bg-amber-500/10 transition-colors" />

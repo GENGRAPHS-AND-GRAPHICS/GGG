@@ -10,7 +10,7 @@ export function Benefits() {
   ];
 
   return (
-    <section className="py-16 border-t border-border relative z-10 bg-muted/20">
+    <section className="py-16 border-t border-border/10 relative z-10 bg-transparent">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {benefits.map((b, i) => (

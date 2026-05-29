@@ -51,9 +51,29 @@ export default function Home() {
         </div>
       </main>
 
-      <TransitionSection />
+      {/* Performance Stats & Benefits wrapper with integrated background video */}
+      <div className="relative w-full overflow-hidden bg-transparent border-t border-border/20">
+        {/* Background Video */}
+        <div className="absolute inset-0 w-full h-full z-0 pointer-events-none flex items-center justify-center">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover object-center opacity-35 scale-105"
+          >
+            <source src="/video/bg_second_video.mp4" type="video/mp4" />
+          </video>
+          {/* Seamless blending and high-contrast readability overlays */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B0908] via-[#0B0908]/75 to-[#0B0908]" />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
 
-      <Benefits />
+        <div className="relative z-10">
+          <TransitionSection />
+          <Benefits />
+        </div>
+      </div>
     </div>
   );
 }
