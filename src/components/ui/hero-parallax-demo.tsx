@@ -10,12 +10,12 @@ export const products = [
   {
     title: "Microsoft Certified: Power BI Data Analyst Associate Certification",
     link: "#",
-    thumbnail: "/images/Credentials/Microsoft Power BI Certification /Microsoft Power BI Data Analyst Certification_Mohit Bhardwaj.jpg",
+    thumbnail: "/images/Credentials/Microsoft Power BI Certification/Microsoft Power BI Data Analyst Certification_Mohit Bhardwaj.jpg",
   },
   {
     title: "Microsoft Power BI Data Analyst Badge",
     link: "#",
-    thumbnail: "/images/Credentials/Microsoft Power BI Certification /PowerBI-Data-Analyst badge_Mohit Bhardwaj.png",
+    thumbnail: "/images/Credentials/Microsoft Power BI Certification/PowerBI-Data-Analyst badge_Mohit Bhardwaj.png",
   },
   {
     title: "Project Management Professional (PMP) Certification",
@@ -71,7 +71,7 @@ export const products = [
   {
     title: "Microsoft Power BI Data Analyst Associate (Verified)",
     link: "#",
-    thumbnail: "/images/Credentials/Microsoft Power BI Certification /PowerBI-Data-Analyst badge_Mohit Bhardwaj.png",
+    thumbnail: "/images/Credentials/Microsoft Power BI Certification/PowerBI-Data-Analyst badge_Mohit Bhardwaj.png",
   },
   {
     title: "PMI Project Management Professional (PMP) Badge (Verified)",

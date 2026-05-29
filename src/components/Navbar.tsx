@@ -119,10 +119,10 @@ export function Navbar() {
   return (
     <div
       className={cn(
-        "fixed left-0 right-0 z-50 flex justify-center transition-all duration-500 ease-out",
+        "fixed left-0 right-0 flex justify-center transition-all duration-500 ease-out",
         scrolled
-          ? "top-0 px-0"
-          : "top-3 sm:top-6 px-3 sm:px-4"
+          ? "top-0 px-0 z-50"
+          : "top-3 sm:top-6 px-3 sm:px-4 z-30"
       )}
     >
       <div
