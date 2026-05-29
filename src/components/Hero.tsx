@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import { OrbitingCircles } from '@/components/ui/orbiting-circles';
@@ -7,6 +8,15 @@ import { useRouter } from 'next/navigation';
 
 export function Hero() {
   const router = useRouter();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-20 lg:pt-0 overflow-hidden">
       {/* Background Video */}
@@ -24,10 +34,10 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-[#0B0908]/60 to-[#0B0908]" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full max-w-7xl mx-auto px-4 lg:px-8 relative">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center w-full max-w-7xl mx-auto px-4 lg:px-8 relative">
 
         {/* Left Column: Text & Actions */}
-        <div className="flex flex-col justify-center order-2 lg:order-1 z-20 lg:pr-8">
+        <div className="flex flex-col justify-center order-1 lg:order-1 z-20 lg:pr-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,87 +84,81 @@ export function Hero() {
         </div>
 
         {/* Right Column: Subject Image with Orbiting Circles */}
-        <div className="relative order-1 lg:order-2 flex items-center justify-end min-h-[550px] lg:min-h-[750px] w-full">
+<div className="relative order-2 lg:order-2 flex items-center justify-center lg:justify-end min-h-[440px] sm:min-h-[500px] lg:min-h-[750px] w-full">
 
-          {/* Orbiting Circles Container */}
-          <div className="absolute inset-y-0 right-0 flex items-center justify-center pointer-events-none w-full lg:w-[350px] max-w-[320px] lg:max-w-[350px] -translate-y-24 lg:-translate-y-46 lg:-translate-x-5 z-[35]">
-
-            {/* Inner Orbit */}
-            <OrbitingCircles
-              className="border-none bg-transparent"
-              duration={25}
-              radius={130}
-              iconSize={32}
-              path={false}
-            >
-              {/* Jira */}
-              <div className="flex items-center justify-center w-full h-full">
-                <img src="https://api.iconify.design/logos:jira.svg" alt="Jira" className="w-8 h-8 object-contain" />
-              </div>
-              {/* Airtable */}
-              <div className="flex items-center justify-center w-full h-full">
-                <img src="https://api.iconify.design/logos:airtable.svg" alt="Airtable" className="w-8 h-8 object-contain" />
-              </div>
-              {/* Adobe Photoshop */}
-              <div className="flex items-center justify-center w-full h-full">
-                <img src="https://api.iconify.design/logos:adobe-photoshop.svg" alt="Adobe Photoshop" className="w-8 h-8 object-contain" />
-              </div>
-              {/* Adobe Express */}
-              <div className="flex items-center justify-center w-full h-full">
-                <img src="/icons/adobe-express-icon.svg" alt="Adobe Express" className="w-8 h-8 object-contain" />
-              </div>
-              {/* Adobe Animate */}
-              <div className="flex items-center justify-center w-full h-full">
-                <img src="/icons/adobe-animate-icon.svg" alt="Adobe Animate" className="w-8 h-8 object-contain" />
-              </div>
-              {/* Figma */}
-              <div className="flex items-center justify-center w-full h-full">
-                <img src="https://api.iconify.design/logos:figma.svg" alt="Figma" className="w-8 h-8 object-contain" />
-              </div>
-            </OrbitingCircles>
-
-            {/* Outer Orbit */}
-            <OrbitingCircles
-              className="border-none bg-transparent"
-              radius={190}
-              duration={30}
-              reverse
-              iconSize={40}
-              path={false}
-            >
-              {/* Power BI */}
-              <div className="flex items-center justify-center w-full h-full">
-                <img src="/icons/power-bi-icon.svg" alt="Power BI" className="w-10 h-10 object-contain" />
-              </div>
-              {/* Tableau */}
-              <div className="flex items-center justify-center w-full h-full">
-                <img src="/icons/tableau.svg" alt="Tableau" className="w-10 h-10 object-contain" />
-              </div>
-              {/* Microsoft Excel */}
-              <div className="flex items-center justify-center w-full h-full">
-                <img src="https://api.iconify.design/vscode-icons:file-type-excel.svg" alt="Microsoft Excel" className="w-10 h-10 object-contain" />
-              </div>
-              {/* SQL */}
-              <div className="flex items-center justify-center w-full h-full">
-                <img src="/icons/sql.svg" alt="SQL" className="w-10 h-10 object-contain" />
-              </div>
-            </OrbitingCircles>
-          </div>
-
-          {/* Person Image */}
-          <div className="absolute inset-y-0 right-0 flex items-center justify-center w-full max-w-[320px] lg:max-w-[380px] pointer-events-none z-40">
-            <img
-              src="/images/sample_nobg_cropped.png"
-              alt="Power BI Creator"
-              className="w-full object-contain object-bottom relative z-10 pointer-events-auto"
-            />
-            {/* Fade the bottom of the subject image to blend with background */}
-            <div className="absolute inset-x-0 bottom-0 h-[200px] lg:h-[280px] bg-gradient-to-t from-[#0B0908] via-[#0B0908]/90 via-35% to-transparent z-20 pointer-events-none" />
-          </div>
+  {/* Person Image — orbits live inside here so they're always aligned to the face */}
+  <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-0 flex items-end lg:items-center justify-center w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[420px] pointer-events-none z-40">
+    
+    {/* Orbiting Circles — positioned at face level (top 15-20% of container) */}
+    <div className="absolute top-[15%] lg:top-[20%] left-1/2 -translate-x-1/2 -ml-6 sm:-ml-8 lg:-ml-10 z-[30] pointer-events-none">
+      {/* Inner Orbit */}
+      <OrbitingCircles
+        className="border-none bg-transparent"
+        duration={25}
+        radius={isMobile ? 90 : 130}
+        iconSize={isMobile ? 20 : 32}
+        path={false}
+      >
+        <div className="flex items-center justify-center w-full h-full">
+          <img src="https://api.iconify.design/logos:jira.svg" alt="Jira" className="w-8 h-8 object-contain" />
         </div>
+        <div className="flex items-center justify-center w-full h-full">
+          <img src="https://api.iconify.design/logos:airtable.svg" alt="Airtable" className="w-8 h-8 object-contain" />
+        </div>
+        <div className="flex items-center justify-center w-full h-full">
+          <img src="https://api.iconify.design/logos:adobe-photoshop.svg" alt="Adobe Photoshop" className="w-8 h-8 object-contain" />
+        </div>
+        <div className="flex items-center justify-center w-full h-full">
+          <img src="/icons/adobe-express-icon.svg" alt="Adobe Express" className="w-8 h-8 object-contain" />
+        </div>
+        <div className="flex items-center justify-center w-full h-full">
+          <img src="/icons/adobe-animate-icon.svg" alt="Adobe Animate" className="w-8 h-8 object-contain" />
+        </div>
+        <div className="flex items-center justify-center w-full h-full">
+          <img src="https://api.iconify.design/logos:figma.svg" alt="Figma" className="w-8 h-8 object-contain" />
+        </div>
+      </OrbitingCircles>
+
+      {/* Outer Orbit */}
+      <OrbitingCircles
+        className="border-none bg-transparent"
+        radius={isMobile ? 125 : 190}
+        duration={30}
+        reverse
+        iconSize={isMobile ? 24 : 40}
+        path={false}
+      >
+        <div className="flex items-center justify-center w-full h-full">
+          <img src="/icons/power-bi-icon.svg" alt="Power BI" className="w-10 h-10 object-contain" />
+        </div>
+        <div className="flex items-center justify-center w-full h-full">
+          <img src="/icons/tableau.svg" alt="Tableau" className="w-10 h-10 object-contain" />
+        </div>
+        <div className="flex items-center justify-center w-full h-full">
+          <img src="https://api.iconify.design/vscode-icons:file-type-excel.svg" alt="Microsoft Excel" className="w-10 h-10 object-contain" />
+        </div>
+        <div className="flex items-center justify-center w-full h-full">
+          <img src="/icons/sql.svg" alt="SQL" className="w-10 h-10 object-contain" />
+        </div>
+      </OrbitingCircles>
+    </div>
+
+    <img
+      src="/images/sample_nobg_cropped.png"
+      alt="Power BI Creator"
+      className="w-full object-contain object-bottom relative z-[45] pointer-events-auto"
+    />
+    {/* Bottom fade */}
+    <div className="absolute inset-x-0 bottom-0 h-[260px] lg:h-[320px] bg-gradient-to-t from-[#0B0908] via-[#0B0908]/95 via-40% to-transparent z-[46] pointer-events-none" />
+  </div>
+
+  {/* Mobile side fades */}
+  <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#0B0908] to-transparent z-50 pointer-events-none lg:hidden" />
+  <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#0B0908] to-transparent z-50 pointer-events-none lg:hidden" />
+</div>
 
       </div>
-      <div className="absolute w-[200vw] left-[-50vw] bottom-[-10px] h-[450px] lg:h-[520px] bg-gradient-to-t from-[#0B0908] via-[#0B0908]/90 via-35% to-transparent pointer-events-none z-10" />
+      <div className="absolute w-[200vw] left-[-50vw] bottom-[-2px] h-[500px] lg:h-[600px] bg-gradient-to-t from-[#0B0908] via-[#0B0908] via-50% to-transparent pointer-events-none z-10" />
     </div>
   );
 }

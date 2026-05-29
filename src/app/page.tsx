@@ -17,37 +17,50 @@ export default function Home() {
 
       <main className="relative">
         <Hero />
-        
-        <HeroParallaxDemo />
-        
+
+        <div className="relative">
+          {/* Top fade — blends with Hero's bottom */}
+          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#0B0908] to-transparent z-10 pointer-events-none" />
+          <HeroParallaxDemo />
+          {/* Bottom fade — blends into next section */}
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0B0908] to-transparent z-10 pointer-events-none" />
+        </div>
 
         {/* Main Sandbox Bento Showroom */}
-        <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="space-y-1 mb-8">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Sandbox Showroom</h2>
-            <p className="text-sm text-muted-foreground">Hover over active configurations to boot live workspace previews.</p>
-          </div>
-          <Suspense fallback={
-            <div className="w-full py-20 flex flex-col items-center justify-center gap-2">
-              <Loader2 className="w-6 h-6 text-amber-500 animate-spin" />
-              <p className="text-xs text-muted-foreground font-mono">LOADING SHOWROOM BLUEPRINTS...</p>
+        <div className="relative">
+          {/* Top fade — blends with Parallax's bottom */}
+          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#0B0908] to-transparent z-10 pointer-events-none" />
+          
+          <div className="max-w-7xl mx-auto px-6 py-12">
+            <div className="space-y-1 mb-8">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Sandbox Showroom</h2>
+              <p className="text-sm text-muted-foreground">Hover over active configurations to boot live workspace previews.</p>
             </div>
-          }>
-            <Showroom limit={6} />
-          </Suspense>
+            <Suspense fallback={
+              <div className="w-full py-20 flex flex-col items-center justify-center gap-2">
+                <Loader2 className="w-6 h-6 text-amber-500 animate-spin" />
+                <p className="text-xs text-muted-foreground font-mono">LOADING SHOWROOM BLUEPRINTS...</p>
+              </div>
+            }>
+              <Showroom limit={6} />
+            </Suspense>
 
-          {/* Marketplace Redirect Button */}
-          <div className="mt-8 flex justify-center">
-            <Link
-              href="/products"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-600 hover:bg-amber-500 text-black text-xs font-bold uppercase tracking-wider hover:-translate-y-0.5 transition-all duration-300 shadow-[0_10px_20px_rgba(245,158,11,0.25)] hover:shadow-[0_10px_25px_rgba(245,158,11,0.4)] cursor-pointer"
-            >
-              <span>Explore Products</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
+            {/* Marketplace Redirect Button */}
+            <div className="mt-8 flex justify-center">
+              <Link
+                href="/products"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-600 hover:bg-amber-500 text-black text-xs font-bold uppercase tracking-wider hover:-translate-y-0.5 transition-all duration-300 shadow-[0_10px_20px_rgba(245,158,11,0.25)] hover:shadow-[0_10px_25px_rgba(245,158,11,0.4)] cursor-pointer"
+              >
+                <span>Explore Products</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
           </div>
+
+          {/* Bottom fade — blends into next section */}
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0B0908] to-transparent z-10 pointer-events-none" />
         </div>
       </main>
 

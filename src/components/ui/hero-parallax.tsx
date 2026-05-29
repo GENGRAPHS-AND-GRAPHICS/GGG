@@ -23,12 +23,20 @@ export const HeroParallax = ({
 }) => {
   const [activeProduct, setActiveProduct] = React.useState<Product | null>(null);
   const [mounted, setMounted] = React.useState(false);
+  const [windowWidth, setWindowWidth] = React.useState(1200);
 
   React.useEffect(() => {
     setMounted(true);
-    return () => setMounted(false);
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      setMounted(false);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
   
+  const isMobile = windowWidth < 768;
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
   const thirdRow = products.slice(10, 15);
@@ -40,12 +48,16 @@ export const HeroParallax = ({
 
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
+  const translateRangeX = isMobile ? 350 : 800;
+  const translateRangeYStart = isMobile ? -120 : -200;
+  const translateRangeYEnd = isMobile ? 120 : 200;
+
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
+    useTransform(scrollYProgress, [0, 1], [0, translateRangeX]),
     springConfig
   );
   const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
+    useTransform(scrollYProgress, [0, 1], [0, -translateRangeX]),
     springConfig
   );
   const rotateX = useSpring(
@@ -61,7 +73,7 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 1], [translateRangeYStart, translateRangeYEnd]),
     springConfig
   );
 
@@ -84,7 +96,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-20 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[120vh] sm:h-[150vh] md:h-[240vh] py-10 md:py-20 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -96,7 +108,7 @@ export const HeroParallax = ({
         }}
         className=""
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-8 md:space-x-20 mb-8 md:mb-20">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -106,7 +118,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-20 space-x-20">
+        <motion.div className="flex flex-row mb-8 md:mb-20 space-x-8 md:space-x-20">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -116,7 +128,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-8 md:space-x-20">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}
@@ -207,7 +219,7 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
+    <div className="max-w-7xl relative mx-auto py-10 md:py-16 px-4 w-full left-0 top-0">
       <h1 className="text-4xl md:text-5xl font-bold dark:text-white">
         Verified Professional <br /> Credentials
       </h1>
@@ -238,7 +250,7 @@ export const ProductCard = ({
       }}
       onClick={onClick}
       key={product.title}
-      className="group/product h-80 w-[24rem] md:h-96 md:w-[30rem] relative shrink-0 rounded-2xl overflow-hidden border border-border/40 shadow-md bg-zinc-900 cursor-pointer"
+      className="group/product h-48 w-[16rem] md:h-80 md:w-[24rem] lg:h-96 lg:w-[30rem] relative shrink-0 rounded-2xl overflow-hidden border border-border/40 shadow-md bg-zinc-900 cursor-pointer"
     >
       <div className="block h-full w-full">
         <img
