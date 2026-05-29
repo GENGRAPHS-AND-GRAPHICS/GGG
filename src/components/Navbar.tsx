@@ -122,7 +122,9 @@ export function Navbar() {
         "fixed left-0 right-0 flex justify-center transition-all duration-500 ease-out",
         scrolled
           ? "top-0 px-0 z-50"
-          : "top-3 sm:top-6 px-3 sm:px-4 z-30"
+          : dropdownOpen
+          ? "top-3 sm:top-6 px-3 sm:px-4 z-50"
+          : "top-3 sm:top-6 px-3 sm:px-4 z-30 hover:z-50"
       )}
     >
       <div
@@ -144,8 +146,8 @@ export function Navbar() {
           {/* Left: Logo & Brand */}
           <div className="flex-1 flex justify-start">
             <Link href="/" className="flex items-center gap-2 py-1 cursor-pointer">
-              <img src="/icons/logo.png" alt="Logo" className="h-9 w-auto object-contain drop-shadow-sm" />
-              <BrandLogo size="md" className="pt-0.5" />
+              <img src="/icons/logo.png" alt="Logo" className="h-11 w-auto object-contain drop-shadow-sm" />
+              {/* <BrandLogo size="md" className="pt-0.5" /> */}
             </Link>
           </div>
 
