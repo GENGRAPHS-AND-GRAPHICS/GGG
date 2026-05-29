@@ -43,10 +43,13 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl lg:text-5xl font-serif font-medium tracking-tight mb-6 leading-[1.1] text-foreground "
+            className="text-3xl lg:text-4xl font-serif font-semibold tracking-tight mb-6 leading-[1.1]"
           >
-            Meet the Expert <br />
-            Power BI Creator
+            <span className="text-[#E0A154]">GENGRAPHS</span> <br />
+            <span className="text-[#414141] dark:text-[#525252] transition-colors">AND GRAPHICS PVT LTD</span>
+            <sup className="text-[0.5em] text-[#414141] dark:text-[#525252] ml-[0.1em] font-sans font-normal align-super">
+              ®
+            </sup>
           </motion.h1>
 
           <motion.p

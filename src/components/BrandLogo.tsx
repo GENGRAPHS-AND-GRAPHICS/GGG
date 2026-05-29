@@ -31,13 +31,11 @@ export function BrandLogo({ className, size = 'md', customSizeClass, wrap = true
         fontFamily: 'var(--font-serif), Garamond, Georgia, serif'
       }}
     >
-      <span className="text-[#E0A154] whitespace-nowrap">GENGRAPHS</span>
-      <span className="text-[#414141] dark:text-[#525252] transition-colors ml-[0.3em] whitespace-nowrap">
-        AND GRAPHICS PVT LTD
+      <span className="text-3xl text-[#E0A154] whitespace-nowrap">GG</span>
+      <span className="text-3xl text-[#414141] dark:text-[#525252] transition-colors whitespace-nowrap">
+        G
       </span>
-      <sup className="text-[0.6em] text-[#414141] dark:text-[#525252] ml-[0.1em] font-sans font-normal align-super">
-        ®
-      </sup>
+     
     </span>
   );
 }
