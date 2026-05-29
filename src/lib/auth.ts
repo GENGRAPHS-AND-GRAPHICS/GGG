@@ -43,6 +43,7 @@ export const auth = betterAuth({
     },
     trustedOrigins: [
         "https://power-bi-mu.vercel.app", 
+        "https://gengraphsandgraphics.com",
         "http://localhost:3000"
     ]
 });
