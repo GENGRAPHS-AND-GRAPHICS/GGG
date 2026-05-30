@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import { Shield, Mail, Phone, X, Send } from 'lucide-react';
-import { FaLinkedin, FaInstagram, FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaYoutube, FaFacebook } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import Link from 'next/link';
 import { BrandLogo } from './BrandLogo';
 
@@ -77,9 +78,9 @@ export function Footer() {
               <div className="space-y-2.5">
                 <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Social Networks</h4>
                 <div className="flex items-center gap-3">
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors"><FaLinkedin className="w-4 h-4" /></a>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors"><FaInstagram className="w-4 h-4" /></a>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors"><FaTwitter className="w-4 h-4" /></a>
+                  <a href="https://www.linkedin.com/company/gengraphs-and-graphics-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><FaLinkedin className="w-4 h-4" /></a>
+                  <a href="https://www.instagram.com/gengraphs_and_graphics?igsh=MWxvZHc2Y2g0YjVpNQ==" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><FaInstagram className="w-4 h-4" /></a>
+                  <a href="https://x.com/GENGRAPHS" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><FaXTwitter className="w-4 h-4" /></a>
                   <a href="#" className="text-muted-foreground hover:text-foreground transition-colors"><FaYoutube className="w-4 h-4" /></a>
                   <a href="#" className="text-muted-foreground hover:text-foreground transition-colors"><FaFacebook className="w-4 h-4" /></a>
                 </div>
