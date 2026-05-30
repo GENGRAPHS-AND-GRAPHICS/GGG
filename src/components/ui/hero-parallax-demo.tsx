@@ -69,6 +69,11 @@ export const products = [
   },
   // Key items repeated to fill 15-grid beautifully
   {
+    title: "ISB Product Management Certification (Verified)",
+    link: "#",
+    thumbnail: "/images/Credentials/ISB certifications/ISB Product Management/ISB Product Management_Mohit Bhardwaj.png",
+  },
+  {
     title: "Microsoft Power BI Data Analyst Associate (Verified)",
     link: "#",
     thumbnail: "/images/Credentials/Microsoft Power BI Certification/PowerBI-Data-Analyst badge_Mohit Bhardwaj.png",
@@ -77,10 +82,5 @@ export const products = [
     title: "PMI Project Management Professional (PMP) Badge (Verified)",
     link: "#",
     thumbnail: "/images/Credentials/PMP Badge & Certification/PMP Badge_Mohit Bhardwaj.png",
-  },
-  {
-    title: "ISB Product Management Certification (Verified)",
-    link: "#",
-    thumbnail: "/images/Credentials/ISB certifications/ISB Product Management/ISB Product Management_Mohit Bhardwaj.png",
   },
 ];

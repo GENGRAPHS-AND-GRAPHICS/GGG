@@ -81,7 +81,7 @@ export function Footer() {
                   <a href="https://www.linkedin.com/company/gengraphs-and-graphics-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><FaLinkedin className="w-4 h-4" /></a>
                   <a href="https://www.instagram.com/gengraphs_and_graphics?igsh=MWxvZHc2Y2g0YjVpNQ==" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><FaInstagram className="w-4 h-4" /></a>
                   <a href="https://x.com/GENGRAPHS" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><FaXTwitter className="w-4 h-4" /></a>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors"><FaYoutube className="w-4 h-4" /></a>
+                  <a href="https://www.youtube.com/@GENGRAPHS_AND_GRAPHICS" className="text-muted-foreground hover:text-foreground transition-colors"><FaYoutube className="w-4 h-4" /></a>
                   <a href="#" className="text-muted-foreground hover:text-foreground transition-colors"><FaFacebook className="w-4 h-4" /></a>
                 </div>
               </div>
