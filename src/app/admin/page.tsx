@@ -4,17 +4,16 @@ import { useState } from "react";
 import { Shield, Plus, Loader2 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getPostsAction, getSystemSettingsAction, updateSystemSettingAction } from "./actions";
 import { AdminMetrics } from "./components/AdminMetrics";
 import { AssetGrid } from "./components/AssetGrid";
-import { AssetFormModal } from "./components/AssetFormModal";
 import { toast } from "sonner";
 
 export default function AdminPage() {
     const { data: sessionData, isPending } = authClient.useSession();
-    const [editingPost, setEditingPost] = useState<any | null>(null);
-    const [showForm, setShowForm] = useState(false);
+    const router = useRouter();
 
     // react-query for posts
     const { data: posts = [], isLoading: isFetchingPosts } = useQuery({
@@ -86,13 +85,11 @@ export default function AdminPage() {
     }
 
     function openCreateForm() {
-        setEditingPost(null);
-        setShowForm(true);
+        router.push("/admin/assets/new");
     }
 
     function handleEditClick(post: any) {
-        setEditingPost(post);
-        setShowForm(true);
+        router.push(`/admin/assets/${post.id}/edit`);
     }
 
     return (
@@ -168,11 +165,9 @@ export default function AdminPage() {
                         <h2 className="text-xs font-bold uppercase tracking-wider text-foreground/80">Active Asset Portfolio</h2>
                         <p className="text-[11px] text-muted-foreground">{posts.length} functional items deployed</p>
                     </div>
-                    {!showForm && (
-                        <button onClick={openCreateForm} className="h-8 px-3 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 hover:opacity-90 text-[11px] font-medium flex items-center gap-1.5 transition-all text-black animate-fade-in cursor-pointer">
-                            <Plus className="w-3.5 h-3.5" /> Create New Asset
-                        </button>
-                    )}
+                    <button onClick={openCreateForm} className="h-8 px-3 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 hover:opacity-90 text-[11px] font-medium flex items-center gap-1.5 transition-all text-black animate-fade-in cursor-pointer">
+                        <Plus className="w-3.5 h-3.5" /> Create New Asset
+                    </button>
                 </div>
 
                 {/* Grid or Loader */}
@@ -185,18 +180,6 @@ export default function AdminPage() {
                     <AssetGrid posts={posts} onEdit={handleEditClick} onCreate={openCreateForm} />
                 )}
             </div>
-
-            {/* Main Configuration Modal Workspace Overlay 
-                Placed OUTSIDE of the z-10 relative container to ensure it renders above nav/footer
-            */}
-            <AssetFormModal 
-                isOpen={showForm}
-                editingPost={editingPost}
-                onClose={() => {
-                    setShowForm(false);
-                    setEditingPost(null);
-                }}
-            />
         </div>
     );
 }

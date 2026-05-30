@@ -162,6 +162,14 @@ export async function getPublicPostByIdAction(id: string) {
     return posts[0] || null;
 }
 
+export async function getPostByIdAction(id: string) {
+    await requireAdmin();
+    const posts = await db.select(POST_SELECT_FIELDS)
+        .from(postsTable)
+        .where(eq(postsTable.id, id));
+    return posts[0] || null;
+}
+
 export async function getPostFileUrlAction(id: string) {
     const session = await requireAuth();
 
