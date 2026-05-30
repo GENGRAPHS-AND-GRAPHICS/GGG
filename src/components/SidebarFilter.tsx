@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Briefcase, Settings, PieChart } from 'lucide-react';
+import { ChevronDown, ChevronUp, Briefcase, Settings, PieChart, X, RotateCcw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const CATEGORIES = [
@@ -74,15 +74,54 @@ export function SidebarFilter({ selectedTags, onChange }: SidebarFilterProps) {
           <Settings className="w-3.5 h-3.5 text-amber-500" />
           Intelligence Filter
         </h3>
-        {selectedTags.length > 0 && (
-          <button 
-            onClick={handleClearAll}
-            className="text-[9px] uppercase tracking-wider font-semibold text-muted-foreground hover:text-amber-500 transition-colors"
-          >
-            Clear All
-          </button>
-        )}
       </div>
+
+      <AnimatePresence>
+        {selectedTags.length > 0 && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="mb-6 pb-5 border-b border-border/40 relative z-10 overflow-hidden"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground/80 flex items-center gap-1.5">
+                Active Filters
+                <span className="flex items-center justify-center min-w-4 h-4 px-1.5 rounded-full bg-amber-500/10 text-amber-500 text-[9px] font-mono font-bold border border-amber-500/20">
+                  {selectedTags.length}
+                </span>
+              </span>
+              <button 
+                onClick={handleClearAll}
+                className="text-[9px] uppercase tracking-wider font-bold text-amber-500/90 hover:text-amber-400 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 px-2.5 py-1 rounded-md transition-all duration-300 flex items-center gap-1 hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <RotateCcw className="w-2.5 h-2.5" />
+                Reset All
+              </button>
+            </div>
+            <div className="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-amber-500/20 scrollbar-track-transparent">
+              {selectedTags.map((tag) => (
+                <motion.span
+                  key={tag}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[10px] font-medium bg-amber-500/10 text-amber-500 dark:text-amber-400 border border-amber-500/25 transition-all hover:bg-amber-500/15"
+                >
+                  {tag}
+                  <button
+                    onClick={() => handleToggleTag(tag)}
+                    className="hover:bg-amber-500/20 rounded-md p-0.5 text-amber-500 hover:text-amber-400 transition-colors cursor-pointer"
+                  >
+                    <X className="w-2.5 h-2.5" />
+                  </button>
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       <div className="space-y-6 relative z-10">
         {CATEGORIES.map((category) => (

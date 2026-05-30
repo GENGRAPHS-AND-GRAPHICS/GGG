@@ -34,7 +34,7 @@ export function Footer() {
               <img src="/icons/logo.png" alt="Logo" className="h-9 w-auto object-contain drop-shadow-sm" />
               <BrandLogo size="md" />
             </div>
-            <p className="text-[11px] text-muted-foreground leading-relaxed max-w-md">
+            <p className="text-xs text-muted-foreground leading-relaxed max-w-md">
               Premium engineered data visualization matrices and deployment assets built for enterprise pipelines.
             </p>
           </div>
@@ -47,14 +47,14 @@ export function Footer() {
               <div className="space-y-2.5">
                 <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Navigation Workspace</h4>
                 <div className="flex flex-col gap-1.5 text-muted-foreground/80">
-                  <Link href="/" className="hover:text-foreground transition-colors text-[11px]">Showroom Matrix</Link>
-                  <Link href="#live-demo" className="hover:text-foreground transition-colors text-[11px]">Active Blueprints</Link>
+                  <Link href="/" className="hover:text-foreground transition-colors text-xs">Showroom Matrix</Link>
+                  <Link href="#live-demo" className="hover:text-foreground transition-colors text-xs">Active Blueprints</Link>
                 </div>
               </div>
 
               <div className="space-y-2.5">
                 <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Secure Settlement</h4>
-                <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground bg-muted border border-border p-2 rounded-lg max-w-[220px]">
+                <div className="flex items-center gap-1.5 text-xs text-muted-foreground bg-muted border border-border p-2 rounded-lg max-w-[220px]">
                   <Shield className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                   <span>Encrypted Ledger Gateway Active</span>
                 </div>
@@ -66,10 +66,10 @@ export function Footer() {
               <div className="space-y-2.5">
                 <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Contact Hub</h4>
                 <div className="flex flex-col gap-2 text-muted-foreground/80">
-                  <a href="mailto:info@gengraphsandgraphics.com" className="flex items-center gap-2 hover:text-foreground transition-colors text-[11px]">
+                  <a href="mailto:info@gengraphsandgraphics.com" className="flex items-center gap-2 hover:text-foreground transition-colors text-xs">
                     <Mail className="w-3.5 h-3.5" /> info@gengraphsandgraphics.com
                   </a>
-                  <a href="tel:+919211217121" className="flex items-center gap-2 hover:text-foreground transition-colors text-[11px]">
+                  <a href="tel:+919211217121" className="flex items-center gap-2 hover:text-foreground transition-colors text-xs">
                     <Phone className="w-3.5 h-3.5" /> +91 9211217121
                   </a>
                 </div>
@@ -92,8 +92,8 @@ export function Footer() {
               <div className="space-y-2.5">
                 <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Help</h4>
                 <div className="flex flex-col gap-1.5 text-muted-foreground/80">
-                  <Link href="/faq" className="hover:text-foreground transition-colors text-[11px]">FAQ</Link>
-                  <Link href="/contact" className="hover:text-foreground transition-colors text-[11px]">Contact Us</Link>
+                  <Link href="/faq" className="hover:text-foreground transition-colors text-xs">FAQ</Link>
+                  <Link href="/contact" className="hover:text-foreground transition-colors text-xs">Contact Us</Link>
                 </div>
               </div>
 {/* 
@@ -109,9 +109,9 @@ export function Footer() {
         </div>
 
         {/* Footer Bottom copyright seal */}
-        <div className="max-w-7xl mx-auto px-6 py-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] text-muted-foreground/60 font-mono">
+        <div className="text-center py-4 border-t border-border text-xs text-muted-foreground/60 font-mono">
           <p>© {new Date().getFullYear()} GENGRAPHS AND GRAPHICS PVT LTD®. ALL RIGHTS RESERVED.</p>
-          <p className="tracking-tighter">BUILT FOR POWER BI TOPOLOGY</p>
+          {/* <p className="tracking-tighter">BUILT FOR POWER BI TOPOLOGY</p> */}
         </div>
       </footer>
 

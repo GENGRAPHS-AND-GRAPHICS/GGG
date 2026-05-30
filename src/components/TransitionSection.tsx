@@ -98,10 +98,10 @@ export function TransitionSection() {
                   <div className="text-2xl font-mono font-bold text-white tracking-tight">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] font-bold text-amber-300/90 tracking-wider uppercase">
+                  <div className="text-[12px] font-bold text-amber-300/90 tracking-wider uppercase">
                     {stat.label}
                   </div>
-                  <p className="text-[10px] text-neutral-400 leading-relaxed font-light">
+                  <p className="text-[12px] text-neutral-400 leading-relaxed font-light">
                     {stat.desc}
                   </p>
                 </div>

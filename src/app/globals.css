@@ -57,6 +57,10 @@
     }
   }
 }
+@theme inline{
+  --text-xs:13px;
+  /* --text-sm:2px */
+}
 
 body {
   font-family: var(--font-sans);
@@ -64,6 +68,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);

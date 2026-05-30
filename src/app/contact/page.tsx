@@ -85,21 +85,21 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   <div className="flex gap-2.5 items-start">
                     <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="text-[11px] text-muted-foreground leading-relaxed">
+                    <span className="text-xs text-muted-foreground leading-relaxed">
                       <strong className="text-foreground font-semibold">Custom Power BI Solutions:</strong> High-performance DAX architecture, semantic modeling, and executive-level report layers.
                     </span>
                   </div>
                   
                   <div className="flex gap-2.5 items-start">
                     <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="text-[11px] text-muted-foreground leading-relaxed">
+                    <span className="text-xs text-muted-foreground leading-relaxed">
                       <strong className="text-foreground font-semibold">Premium Interface Design:</strong> End-to-end UX/UI mapping in Figma and Adobe XD matching your corporate brand guidelines.
                     </span>
                   </div>
 
                   <div className="flex gap-2.5 items-start">
                     <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="text-[11px] text-muted-foreground leading-relaxed">
+                    <span className="text-xs text-muted-foreground leading-relaxed">
                       <strong className="text-foreground font-semibold">Interactive Presentations:</strong> Boardroom-ready pitch decks and slide matrices built to translate intelligence instantly.
                     </span>
                   </div>

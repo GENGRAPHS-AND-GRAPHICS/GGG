@@ -27,7 +27,7 @@ export function Benefits() {
               </div>
               <div className="space-y-1">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">{b.title}</h3>
-                <p className="text-muted-foreground text-[11px] leading-relaxed">{b.desc}</p>
+                <p className="text-muted-foreground text-xs leading-relaxed">{b.desc}</p>
               </div>
             </motion.div>
           ))}
