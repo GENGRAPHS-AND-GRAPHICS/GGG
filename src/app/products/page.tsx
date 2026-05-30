@@ -2,6 +2,17 @@ import { ProductsLayout } from '@/components/ProductsLayout';
 import { Suspense } from 'react';
 import { Loader2 } from 'lucide-react';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Premium Dashboard Templates Gallery",
+  description: "Explore our curated gallery of premium, production-grade Power BI dashboards and modern UI/UX templates tailored for corporate decision-makers.",
+  openGraph: {
+    title: "Premium Dashboard Templates Gallery | Gengraphs & Graphics",
+    description: "Explore our curated gallery of premium, production-grade Power BI dashboards and modern UI/UX templates tailored for corporate decision-makers.",
+  }
+};
+
 export default function ProductsPage() {
   return (
     <Suspense fallback={

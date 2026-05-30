@@ -4,6 +4,17 @@ import { Loader2 } from 'lucide-react';
 import { getSystemSettingsAction } from '@/app/admin/actions';
 import { notFound } from 'next/navigation';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Corporate Power BI Templates & BI Dashboards",
+  description: "Download production-ready Power BI templates. Fully optimized, secure, and interactive executive reports mapped directly to your business KPIs.",
+  openGraph: {
+    title: "Corporate Power BI Templates & BI Dashboards | Gengraphs & Graphics",
+    description: "Download production-ready Power BI templates. Fully optimized, secure, and interactive executive reports mapped directly to your business KPIs.",
+  }
+};
+
 export default async function ProductsPowerBi() {
   const settings = await getSystemSettingsAction();
   if (settings.hide_powerbi) {

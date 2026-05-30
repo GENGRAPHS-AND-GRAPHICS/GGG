@@ -4,6 +4,17 @@ import { Loader2 } from 'lucide-react';
 import { getSystemSettingsAction } from '@/app/admin/actions';
 import { notFound } from 'next/navigation';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Premium UI/UX Templates & Dashboard Blueprints",
+  description: "Explore high-fidelity Figma and UX/UI blueprints. Modern, responsive layouts designed to deliver premium user experiences.",
+  openGraph: {
+    title: "Premium UI/UX Templates & Dashboard Blueprints | Gengraphs & Graphics",
+    description: "Explore high-fidelity Figma and UX/UI blueprints. Modern, responsive layouts designed to deliver premium user experiences.",
+  }
+};
+
 export default async function ProductsUiUx() {
   const settings = await getSystemSettingsAction();
   if (settings.hide_uiux) {

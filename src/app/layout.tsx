@@ -9,8 +9,32 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const garamond = EB_Garamond({ subsets: ['latin'], variable: '--font-serif' });
 
 export const metadata: Metadata = {
-  title: "Gengraphs & Graphics | Premium Power BI & Graphic Design Services",
-  description: "High-end corporate Power BI templates, interactive executive dashboards, and professional graphic and UI/UX design solutions.",
+  metadataBase: new URL("https://gengraphsandgraphics.com"),
+  title: {
+    default: "Gengraphs & Graphics | Premium Power BI & Graphic Design Services",
+    template: "%s | Gengraphs & Graphics"
+  },
+  description: "High-end corporate Power BI templates, interactive executive dashboards, and professional graphic and UI/UX design solutions. Founded by Mohit Bhardwaj.",
+  alternates: {
+    canonical: "./",
+  },
+  openGraph: {
+    title: "Gengraphs & Graphics | Premium Power BI & Graphic Design Services",
+    description: "High-end corporate Power BI templates, interactive executive dashboards, and professional graphic and UI/UX design solutions. Founded by Mohit Bhardwaj.",
+    url: "https://gengraphsandgraphics.com",
+    siteName: "Gengraphs & Graphics",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gengraphs & Graphics | Premium Power BI & Graphic Design Services",
+    description: "High-end corporate Power BI templates, interactive executive dashboards, and professional graphic and UI/UX design solutions. Founded by Mohit Bhardwaj.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 import { Navbar } from "@/components/Navbar";

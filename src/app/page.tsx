@@ -8,6 +8,17 @@ import HeroParallaxDemo from '@/components/ui/hero-parallax-demo';
 import { Suspense } from 'react';
 import { Loader2 } from 'lucide-react';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Premium Power BI & Graphic Design Services",
+  description: "High-end corporate Power BI templates, interactive executive dashboards, and professional graphic and UI/UX design solutions. Founded by Mohit Bhardwaj.",
+  openGraph: {
+    title: "Gengraphs & Graphics | Premium Power BI & Graphic Design Services",
+    description: "High-end corporate Power BI templates, interactive executive dashboards, and professional graphic and UI/UX design solutions. Founded by Mohit Bhardwaj.",
+  }
+};
+
 export default function Home() {
   return (
     <div className="relative w-full min-h-screen bg-transparent text-foreground overflow-x-hidden selection:bg-indigo-500/30">
