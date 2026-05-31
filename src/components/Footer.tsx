@@ -34,9 +34,6 @@ export function Footer() {
               <img src="/icons/logo.png" alt="Logo" className="h-9 w-auto object-contain drop-shadow-sm" />
               <BrandLogo size="md" />
             </div>
-            <p className="text-xs text-muted-foreground leading-relaxed max-w-md">
-              Premium engineered data visualization matrices and deployment assets built for enterprise pipelines.
-            </p>
           </div>
 
           {/* Grid Columns for Directories */}
@@ -87,22 +84,17 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Column 4: Help & Assistance */}
+            {/* Column 4: GENGRAPHS AND GRAPHICS */}
             <div className="space-y-4">
               <div className="space-y-2.5">
-                <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Help</h4>
+                <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">GENGRAPHS AND GRAPHICS</h4>
                 <div className="flex flex-col gap-1.5 text-muted-foreground/80">
+                  <Link href="/about" className="hover:text-foreground transition-colors text-xs">About Us</Link>
+                  <Link href="/policies" className="hover:text-foreground transition-colors text-xs">Policies</Link>
                   <Link href="/faq" className="hover:text-foreground transition-colors text-xs">FAQ</Link>
                   <Link href="/contact" className="hover:text-foreground transition-colors text-xs">Contact Us</Link>
                 </div>
               </div>
-{/* 
-              <button 
-                onClick={() => setIsModalOpen(true)}
-                className="mt-2 w-full max-w-[200px] h-9 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/20 font-medium text-xs flex items-center justify-center gap-2 transition-all shadow-sm"
-              >
-                GENGRAPHS Assistance
-              </button> */}
             </div>
 
           </div>
