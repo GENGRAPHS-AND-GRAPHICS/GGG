@@ -31,9 +31,9 @@ export function BrandLogo({ className, size = 'md', customSizeClass, wrap = true
         fontFamily: 'var(--font-serif), Garamond, Georgia, serif'
       }}
     >
-      <span className="text-3xl text-[#E0A154] whitespace-nowrap">GG</span>
+      <span className="text-3xl text-[#E0A154] whitespace-nowrap">G</span>
       <span className="text-3xl text-[#414141] dark:text-[#525252] transition-colors whitespace-nowrap">
-        G
+        GG
       </span>
      
     </span>

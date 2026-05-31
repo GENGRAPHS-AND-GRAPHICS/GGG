@@ -65,7 +65,7 @@ export function Hero() {
             <div className="mt-2 flex items-center justify-end gap-2">
               <span className="text-muted-foreground text-[13px] lg:text-[14px]">—</span>
               <a 
-                href="https://www.linkedin.com/in/mohit-bhardwaj-7b1863120/"
+                href="https://www.linkedin.com/in/mohitbhardwaj-7b1863120/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[13px] lg:text-[14px] font-semibold text-[#E0A154] hover:text-amber-400 transition-colors inline-flex items-center gap-1.5"

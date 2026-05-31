@@ -20,14 +20,14 @@ interface ShowroomFilterProps {
 export function ShowroomFilter({ activeSort, setActiveSort }: ShowroomFilterProps) {
   return (
     <div className="flex items-center gap-2 flex-wrap">
-      <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground/60 uppercase font-bold tracking-wider mr-1 shrink-0">
+      <div className="flex items-center gap-1.5 text-xs text-muted-foreground/60 uppercase font-bold tracking-wider mr-1 shrink-0">
         <ArrowDownWideNarrow className="w-3.5 h-3.5" /> Sort
       </div>
       {SORT_OPTIONS.map((option) => (
         <button
           key={option.value}
           onClick={() => setActiveSort(option.value)}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-semibold uppercase tracking-wider transition-all duration-300 border ${
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-300 border ${
             activeSort === option.value
               ? 'bg-amber-500/15 border-amber-500/30 text-amber-600 dark:text-amber-300 shadow-sm shadow-amber-500/10'
               : 'bg-muted border-border text-muted-foreground hover:bg-accent hover:border-border hover:text-foreground'

@@ -12,7 +12,7 @@ export default function AboutPage() {
       {/* Background glow effects */}
       <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[50%] bg-amber-600/10 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute top-[30%] right-[-10%] w-[50%] h-[50%] bg-amber-600/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[20%] w-[40%] h-[40%] bg-amber-600/5 blur-[110px] rounded-full pointer-events-none" />
+    <div className="absolute bottom-[10%] left-[20%] w-[40%] h-[40%] bg-amber-600/5 blur-[110px] rounded-full pointer-events-none" />
 
       <main className="relative z-10 flex-grow pt-32 sm:pt-40 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -23,7 +23,7 @@ export default function AboutPage() {
             </div>
             
             <h1 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight mb-4 select-none leading-tight">
-              <span className="text-[#E0A154]">GENGRAPHS</span> <br />
+              <span className="text-[#E0A154]">GENGRAPHS </span> 
               <span className="bg-gradient-to-r from-[#414141] to-neutral-400 bg-clip-text text-transparent">
                 AND GRAPHICS PVT LTD®
               </span>
@@ -44,7 +44,7 @@ export default function AboutPage() {
                 </h2>
                 <div className="h-0.5 w-8 bg-amber-500 rounded-full mb-6" />
                 <p className="text-xs text-muted-foreground leading-relaxed mb-6">
-                  Founded in <span className="text-foreground font-semibold">2026 by Mohit Bhardwaj</span>, <span className="font-serif text-[#E0A154] font-medium">GENGRAPHS</span> <span className="font-serif text-[#414141] dark:text-[#a3a3a3] font-medium">AND GRAPHICS PVT LTD®</span> stands at the intersection of complex quantitative analysis and high-fidelity product design. 
+                  Founded in <span className="text-foreground font-semibold">2026 by <Link href="https://www.linkedin.com/in/mohitbhardwaj-7b1863120/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 underline decoration-amber-500/30 underline-offset-4 transition-colors">Mohit Bhardwaj</Link></span>, <span className="font-serif text-[#E0A154] font-medium">GENGRAPHS</span> <span className="font-serif text-[#414141] dark:text-[#a3a3a3] font-medium">AND GRAPHICS PVT LTD®</span> stands at the intersection of complex quantitative analysis and high-fidelity product design. 
                 </p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   We don&apos;t just build dashboards or graphics. We build cognitive workflows that allow decision-makers to visual-inspect operations and execute strategies rapidly.
@@ -54,7 +54,16 @@ export default function AboutPage() {
               <div className="mt-8 pt-8 border-t border-border/60 flex items-center justify-between">
                 <div>
                   <div className="text-[10px] text-muted-foreground uppercase tracking-widest font-mono">Led By</div>
-                  <div className="text-xs font-semibold text-foreground mt-0.5">Mohit Bhardwaj</div>
+                  <div className="text-xs font-semibold text-foreground mt-0.5">
+                    <Link
+                      href="https://www.linkedin.com/in/mohitbhardwaj-7b1863120/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-amber-500 transition-colors"
+                    >
+                      Mohit Bhardwaj
+                    </Link>
+                  </div>
                 </div>
                 <Link
                   href="/products"

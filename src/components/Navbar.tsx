@@ -57,6 +57,7 @@ export function Navbar() {
   const { data: sessionData, isPending } = authClient.useSession();
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [openMenuValue, setOpenMenuValue] = useState<string | null>(null);
 
   const { data: settings } = useQuery({
     queryKey: ['systemSettings'],
@@ -153,17 +154,26 @@ export function Navbar() {
 
           {/* Center: Navigation Links */}
           <div className="hidden md:flex items-center gap-6">
-            <NavigationMenu>
+            <NavigationMenu value={openMenuValue || undefined} onValueChange={(val) => setOpenMenuValue(val)}>
               <NavigationMenuList>
                 {/* About Us Nav Item */}
-                <NavigationMenuItem>
+                <NavigationMenuItem value="about">
                   <NavigationMenuTrigger
-                    onClick={() => router.push('/about')}
-                    className="text-foreground/70 hover:text-foreground bg-transparent hover:bg-accent focus:bg-accent data-[popup-open]:bg-accent data-[popup-open]:text-foreground transition-all cursor-pointer text-xs font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"
+                    onClick={() => {
+                      router.push('/about');
+                      setOpenMenuValue(null);
+                    }}
+                    className="text-foreground/70 hover:text-foreground bg-transparent hover:bg-accent focus:bg-accent data-[popup-open]:bg-accent data-[popup-open]:text-foreground transition-all cursor-pointer text-base font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"
                   >
                     About Us
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="cursor-pointer p-5 w-[560px] md:w-[600px] lg:w-[640px]" onClick={() => { router.push("/about") }}>
+                  <NavigationMenuContent 
+                    className="cursor-pointer p-5 w-[560px] md:w-[600px] lg:w-[640px]" 
+                    onClick={() => {
+                      router.push("/about");
+                      setOpenMenuValue(null);
+                    }}
+                  >
                     <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
                       <div className="md:col-span-2 flex flex-col justify-between rounded-xl bg-gradient-to-br from-amber-950/20 via-popover to-background p-4 border border-border/40 shadow-xl">
                         <div>
@@ -171,12 +181,26 @@ export function Navbar() {
                             Gengraphs &amp; Graphics
                           </h4>
                           <p className="mt-2 text-[10px] text-muted-foreground leading-relaxed">
-                            Founded in 2026 by <span className="text-foreground font-medium">Mohit Bhardwaj</span>.
+                            Founded in 2026 by{" "}
+                            <a
+                              href="https://www.linkedin.com/in/mohitbhardwaj-7b1863120/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="text-foreground font-medium hover:text-amber-500 transition-colors underline decoration-dotted underline-offset-2"
+                            >
+                              Mohit Bhardwaj
+                            </a>
+                            .
                           </p>
                         </div>
                         <div className="mt-4 pt-4 border-t border-border/40">
                           <Link
                             href="/about"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setOpenMenuValue(null);
+                            }}
                             className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 px-2.5 py-1.5 text-[9px] font-medium text-amber-500 transition-all border border-amber-500/20 group/btn"
                           >
                             <span>About Us</span>
@@ -199,17 +223,24 @@ export function Navbar() {
 
                 {/* Products Nav Item */}
                 {showProducts && (
-                  <NavigationMenuItem>
+                  <NavigationMenuItem value="products">
                     <NavigationMenuTrigger
-                      onClick={() => router.push('/products')}
-                      className="text-foreground/70 hover:text-foreground bg-transparent hover:bg-accent focus:bg-accent data-[popup-open]:bg-accent data-[popup-open]:text-foreground transition-all cursor-pointer text-xs font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"
+                      onClick={() => {
+                        router.push('/products');
+                        setOpenMenuValue(null);
+                      }}
+                      className="text-foreground/70 hover:text-foreground bg-transparent hover:bg-accent focus:bg-accent data-[popup-open]:bg-accent data-[popup-open]:text-foreground transition-all cursor-pointer text-base font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"
                     >
                       Products
                     </NavigationMenuTrigger>
                     <NavigationMenuContent className="p-2 w-[450px]">
                       <div className="grid grid-cols-1 gap-1">
                         {showUiux && (
-                          <NavigationMenuLink href="/products/ui-ux" className="group/item flex gap-4 rounded-xl p-2.5 hover:bg-accent transition-all duration-300 border border-transparent hover:border-border cursor-pointer">
+                          <NavigationMenuLink 
+                            href="/products/ui-ux" 
+                            onClick={() => setOpenMenuValue(null)}
+                            className="group/item flex gap-4 rounded-xl p-2.5 hover:bg-accent transition-all duration-300 border border-transparent hover:border-border cursor-pointer"
+                          >
                             <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 group-hover/item:bg-purple-500/20 transition-all duration-300">
                               <FigmaIcon />
                             </div>
@@ -223,7 +254,11 @@ export function Navbar() {
                         )}
 
                         {showPowerbi && (
-                          <NavigationMenuLink href="/products/power-bi" className="group/item flex gap-4 rounded-xl p-2.5 hover:bg-accent transition-all duration-300 border border-transparent hover:border-border cursor-pointer">
+                          <NavigationMenuLink 
+                            href="/products/power-bi" 
+                            onClick={() => setOpenMenuValue(null)}
+                            className="group/item flex gap-4 rounded-xl p-2.5 hover:bg-accent transition-all duration-300 border border-transparent hover:border-border cursor-pointer"
+                          >
                             <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-yellow-500/10 border border-yellow-500/20 group-hover/item:bg-yellow-500/20 transition-all duration-300">
                               <PowerBIIcon />
                             </div>
@@ -241,14 +276,23 @@ export function Navbar() {
                 )}
 
                 {/* Contact Nav Item */}
-                <NavigationMenuItem>
+                <NavigationMenuItem value="contact">
                   <NavigationMenuTrigger
-                    onClick={() => router.push('/contact')}
-                    className="text-foreground/70 hover:text-foreground bg-transparent hover:bg-accent focus:bg-accent data-[popup-open]:bg-accent data-[popup-open]:text-foreground transition-all cursor-pointer text-xs font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"
+                    onClick={() => {
+                      router.push('/contact');
+                      setOpenMenuValue(null);
+                    }}
+                    className="text-foreground/70 hover:text-foreground bg-transparent hover:bg-accent focus:bg-accent data-[popup-open]:bg-accent data-[popup-open]:text-foreground transition-all cursor-pointer text-base font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"
                   >
                     Contact
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="cursor-pointer p-5 w-[560px] md:w-[600px] lg:w-[640px]" onClick={() => { router.push("/contact") }}>
+                  <NavigationMenuContent 
+                    className="cursor-pointer p-5 w-[560px] md:w-[600px] lg:w-[640px]" 
+                    onClick={() => {
+                      router.push("/contact");
+                      setOpenMenuValue(null);
+                    }}
+                  >
                     <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
                       <div className="md:col-span-2 flex flex-col justify-between rounded-xl bg-gradient-to-br from-amber-950/20 via-popover to-background p-4 border border-border/40 shadow-xl">
                         <div>
@@ -262,6 +306,10 @@ export function Navbar() {
                         <div className="mt-4 pt-4 border-t border-border/40">
                           <Link
                             href="/contact"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setOpenMenuValue(null);
+                            }}
                             className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 px-2.5 py-1.5 text-[9px] font-medium text-amber-500 transition-all border border-amber-500/20 group/btn"
                           >
                             <span>Send Message</span>
@@ -341,7 +389,7 @@ export function Navbar() {
                 {/* Avatar Button */}
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className={`relative h-7 w-7 rounded-full border border-border bg-gradient-to-br ${currentGradient} flex items-center justify-center text-[10px] font-medium text-foreground/90 hover:border-border/80 transition-colors cursor-pointer overflow-hidden`}
+                  className={`relative h-9 w-9 rounded-full border border-border bg-gradient-to-br ${currentGradient} flex items-center justify-center text-[10px] font-medium text-foreground/90 hover:border-border/80 transition-colors cursor-pointer overflow-hidden`}
                 >
                   <img
                     src={`/avatars/${String((avatarIndex % 5) + 1).padStart(2, '0')}.webp`}
@@ -349,7 +397,7 @@ export function Navbar() {
                     className="absolute inset-0 w-full h-full object-cover z-20"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
                   />
-                  <span className="relative z-10">
+                  <span className="relative z-10 text-xs">
                     {sessionData.user.name ? getInitials(sessionData.user.name) : <UserIcon className="w-3.5 h-3.5" />}
                   </span>
                 </button>
@@ -365,11 +413,19 @@ export function Navbar() {
 
                     {/* Navigation */}
                     <div className="space-y-0.5">
-                      <Link href="/dashboard" className="flex items-center px-3 py-1.5 text-xs text-foreground/70 hover:text-foreground hover:bg-accent rounded-lg transition-colors cursor-pointer">
+                      <Link 
+                        href="/dashboard" 
+                        onClick={() => setDropdownOpen(false)} 
+                        className="flex items-center px-3 py-1.5 text-xs text-foreground/70 hover:text-foreground hover:bg-accent rounded-lg transition-colors cursor-pointer"
+                      >
                         Dashboard
                       </Link>
                       {sessionData.user.isAdmin && (
-                        <Link href="/admin" className="flex items-center px-3 py-1.5 text-xs text-amber-500 hover:text-amber-600 hover:bg-accent rounded-lg transition-colors cursor-pointer">
+                        <Link 
+                          href="/admin" 
+                          onClick={() => setDropdownOpen(false)} 
+                          className="flex items-center px-3 py-1.5 text-xs text-amber-500 hover:text-amber-600 hover:bg-accent rounded-lg transition-colors cursor-pointer"
+                        >
                           Admin
                         </Link>
                       )}

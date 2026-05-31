@@ -61,7 +61,7 @@ export function TransitionSection() {
           <div className="lg:col-span-5 space-y-4">
             <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-[10px] font-semibold text-amber-400 backdrop-blur-md uppercase tracking-wider">
               <BarChart3 className="w-3.5 h-3.5" />
-              <span>Architectural Performance</span>
+              <span>Performance Matrix</span>
             </div>
             
             <h2 className="text-3xl sm:text-4xl font-sans font-bold tracking-tight text-white leading-tight">
@@ -71,8 +71,8 @@ export function TransitionSection() {
               </span>
             </h2>
             
-            <p className="text-xs text-neutral-400 leading-relaxed max-w-sm">
-              We leverage advanced DAX patterns, clean UI design principles, and responsive layouts to deliver Power BI spaces that are fast, robust, and highly functional.
+            <p className="text-base text-neutral-400 leading-relaxed max-w-sm">
+           At GENGRAPHS AND GRAPHICS, We build highperformance workspaces where advanced <strong> Data Analytics </strong>, premium <strong> Graphic Design </strong>, and rigorous <strong> Business Management </strong> converge. Leveraging sophisticated DAX modeling, Story Telling,  usercentric interfaces, and strategic operational frameworks, we deliver custom environments that are fast, robust, and visually compelling—giving you absolute precision in every real-time decision.
             </p>
           </div>
 

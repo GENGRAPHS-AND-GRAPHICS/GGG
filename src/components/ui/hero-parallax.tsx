@@ -9,6 +9,7 @@ import {
   MotionValue,
   AnimatePresence,
 } from "framer-motion";
+import { Highlighter } from "@/registry/magicui/highlighter";
 
 export interface Product {
   title: string;
@@ -223,9 +224,16 @@ export const Header = () => {
       <h1 className="text-4xl md:text-5xl font-bold dark:text-white">
         Verified Professional <br /> Credentials
       </h1>
-      <p className="max-w-2xl text-base mt-4 dark:text-neutral-200 text-muted-foreground">
-        A comprehensive showcase of professional certifications across Data Analytics, 
-        Project Management, Product Leadership, and Business Frameworks.
+      <p className="max-w-3xl text-base mt-4 dark:text-neutral-200 text-muted-foreground leading-relaxed">
+        Delivering premium business solutions requires more than just technical proficiency—it demands{" "}
+        <Highlighter action="underline" color="#E0A154">
+          proven, cross-disciplinary expertise.
+        </Highlighter>{" "}
+        At GENGRAPHS AND GRAPHICS PVT. LTD., our foundation is built on globally recognized credentials:{" "}
+        <span className="font-semibold text-foreground">
+          PMP®, Microsoft Certified Power BI Analyst (PL-300), Airtable AI App builder, Admin, Wharton & ISB Product Management & Applied Business Analytics
+        </span>{" "}
+        that bridge the gap between rigorous data science, strategic project execution, and cinematic visual design.
       </p>
     </div>
   );
