@@ -1,94 +1,70 @@
 import Link from 'next/link';
-import { Shield, FileText, Lock, Scale, ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Cookie, ShieldAlert, Scale, Lock, Eye } from 'lucide-react';
 
 export const metadata = {
-  title: "Policies - GENGRAPHS AND GRAPHICS PVT LTD®",
-  description: "Review the Privacy Policy, Terms of Service, Refund Policy, and Delivery Terms for GENGRAPHS AND GRAPHICS PVT LTD®.",
+  title: "Compliance & Corporate Policies Hub - GENGRAPHS AND GRAPHICS PVT LTD®",
+  description: "Official legal registry for GENGRAPHS AND GRAPHICS (OPC) PVT. LTD. Access our Terms, Cookie Policy, Disclaimer, Security Disclosure, and Accessibility Charter.",
 };
 
-const policySections = [
+const policyHubItems = [
   {
-    id: "privacy",
-    icon: Lock,
-    title: "Privacy Policy",
-    lastUpdated: "May 2026",
-    intro: "We value your trust and security. This Privacy Policy details how we collect, process, and protect your information when utilizing our Power BI templates, consulting services, and platform.",
-    points: [
-      {
-        heading: "1. Data Collection & Usage",
-        description: "We collect basic identifying details (such as name, corporate email, and transaction records) solely to process orders, grant access to secure templates, and provide support SLAs."
-      },
-      {
-        heading: "2. Security & Ledger Integrity",
-        description: "All payment transactions and downloads are handled via encrypted ledger gateways. We do not store financial credentials or private database connection details on our servers."
-      },
-      {
-        heading: "3. No Third-Party Tracking",
-        description: "Your corporate data is yours alone. We do not sell, rent, or trade user analytics or business information to any external data aggregators or advertising networks."
-      }
+    id: "cookie-policy",
+    icon: Cookie,
+    title: "Cookie Policy",
+    link: "/cookie-policy",
+    summary: "Details how we deploy first/third-party cookies and tracking technology to deliver a secure, optimized visualization matrix.",
+    keyPoints: [
+      "First-party cookies remember user preferences.",
+      "Embedded Tableau & media track engagement safely.",
+      "Zero invasive advertising cookies on our dashboards."
     ]
   },
   {
-    id: "terms",
+    id: "disclaimer",
+    icon: ShieldAlert,
+    title: "Disclaimer & Liability",
+    link: "/disclaimer",
+    summary: "Limits company liability for professional B2B analytics, strategic consulting models, and creative brand designs.",
+    keyPoints: [
+      "Analytics dashboards serve as decision-support tools.",
+      "Subjective branding assets governed by client briefs.",
+      "Exclusive Faridabad, Haryana jurisdiction for disputes."
+    ]
+  },
+  {
+    id: "terms-of-service",
     icon: Scale,
     title: "Terms of Service",
-    lastUpdated: "May 2026",
-    intro: "By accessing Gengraphs & Graphics tools, premium templates, and remote design services, you agree to comply with our commercial terms and operational guidelines.",
-    points: [
-      {
-        heading: "1. Licensing & Usage Scope",
-        description: "Purchased Power BI templates (.pbix) are licensed for internal corporate use. Reselling, distributing, or whitelabeling our template assets as raw standalone templates is strictly prohibited."
-      },
-      {
-        heading: "2. Consulting & Service SLA",
-        description: "Custom design and analytical contracts operate under agreed statement of works (SOW). We offer a guaranteed 12-hour response SLA on all operational and revision tasks."
-      },
-      {
-        heading: "3. Liability Limits",
-        description: "While we build highly optimized, secure, and robust layouts, GENGRAPHS AND GRAPHICS is not responsible for analytical errors arising from external database modifications or user-altered DAX code."
-      }
+    link: "/terms-of-service",
+    summary: "Governs general site access, milestone-based wire transfer structures, client responsibilities, and intellectual property terms.",
+    keyPoints: [
+      "Strict milestone-based payments (Wire Transfer only).",
+      "All deposits and milestone payments are non-refundable.",
+      "IP transferred only upon final secure project settlement."
     ]
   },
   {
-    id: "refund",
-    icon: Shield,
-    title: "Refund & Cancellation Policy",
-    lastUpdated: "May 2026",
-    intro: "Please review our refund parameters regarding digital assets, high-fidelity mockups, and corporate BI implementations.",
-    points: [
-      {
-        heading: "1. Digital Downloads",
-        description: "Due to the non-returnable nature of downloadable digital files (.pbix, Figma, or Adobe XD assets), standard digital template purchases are generally non-refundable once downloaded."
-      },
-      {
-        heading: "2. Custom Project Milestones",
-        description: "For custom dashboards and premium graphic designs, clients are billed according to progressive milestones. Cancellations will cease future work, but completed milestones remain non-refundable."
-      },
-      {
-        heading: "3. Dedicated Support Cases",
-        description: "If you experience any technical integration issues or compatibility errors with your template setup, our dedicated support engineering team will resolve the issue or provide alternative credit options."
-      }
+    id: "report-vulnerability",
+    icon: Lock,
+    title: "Report a Vulnerability",
+    link: "/report-vulnerability",
+    summary: "Ethical disclosure program for security researchers to report platform vulnerabilities, database loop bypasses, or bugs.",
+    keyPoints: [
+      "Zero customer data inspection/mirroring allowed.",
+      "Responsible disclosure with 12-hour acknowledgment SLA.",
+      "No paid bug bounty program operated at this time."
     ]
   },
   {
-    id: "delivery",
-    icon: FileText,
-    title: "Delivery & Fulfillment Policy",
-    lastUpdated: "May 2026",
-    intro: "How we fulfill and deliver digital templates, mockups, and remote visualization consultancy services.",
-    points: [
-      {
-        heading: "1. Instant Digital Delivery",
-        description: "Upon verified secure settlement, all standard Power BI template packages are instantly available for download via your unique encrypted gateway link and automated email invoice."
-      },
-      {
-        heading: "2. Custom Design Blueprints",
-        description: "UX/UI designs, brand-aligned graphics, and custom dashboards are built and delivered progressively according to the timelines specified in your custom engagement agreement."
-      },
-      {
-        heading: "3. Future Support & Updates",
-        description: "Minor updates, code patches, and visual refinements are pushed directly to original secure download repositories, keeping your active blueprints aligned with current Next.js and Power BI releases."
-      }
+    id: "accessibility-policy",
+    icon: Eye,
+    title: "Accessibility Policy",
+    link: "/accessibility-policy",
+    summary: "Outlines our commitments to WCAG AA digital standards, color vision deficiency optimization, and dashboard navigability.",
+    keyPoints: [
+      "Semantic HTML & keyboard navigation focus states.",
+      "Contrast ratios designed for visual clarity & colorblindness.",
+      "Descriptive alt-text for interactive dashboard assets."
     ]
   }
 ];
@@ -106,77 +82,71 @@ export default function PoliciesPage() {
           
           {/* Header */}
           <div className="flex flex-col items-center text-center mb-16">
-            <Link href="/" className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground text-xs font-medium transition-colors mb-6 self-center group">
-              <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" /> Back to Workspace
-            </Link>
-            
             <h1 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight mb-4 select-none leading-tight">
               <span className="text-[#E0A154]">GENGRAPHS</span> <br />
               <span className="bg-gradient-to-r from-[#414141] to-neutral-400 bg-clip-text text-transparent">
-                COMPANY POLICIES
+                POLICIES &amp; REGISTRY
               </span>
             </h1>
             
             <p className="max-w-xl text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              We operate under transparent, secure, and professional frameworks to deliver top-tier Business Intelligence blueprints and design services.
+              We operate under transparent, compliant, and professional frameworks to protect your data, deliver robust analytics, and ensure project success.
             </p>
           </div>
 
-          {/* Quick Nav Links */}
-          <div className="flex flex-wrap justify-center gap-3 mb-16 max-w-2xl mx-auto">
-            {policySections.map((sect) => (
-              <a
-                key={sect.id}
-                href={`#${sect.id}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-border/40 hover:border-amber-500/30 bg-card/40 hover:bg-amber-500/10 px-4 py-1.5 text-xs font-medium text-muted-foreground hover:text-amber-500 transition-all backdrop-blur-md cursor-pointer"
-              >
-                <sect.icon className="w-3.5 h-3.5 shrink-0" />
-                <span>{sect.title}</span>
-              </a>
-            ))}
-          </div>
-
-          {/* Policy Detail Sections */}
-          <div className="space-y-12 max-w-4xl mx-auto">
-            {policySections.map((sect) => {
-              const IconComp = sect.icon;
+          {/* Policy Registry Hub Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {policyHubItems.map((item) => {
+              const IconComp = item.icon;
               return (
-                <section
-                  key={sect.id}
-                  id={sect.id}
-                  className="scroll-mt-24 rounded-3xl bg-card/60 border border-border/80 p-6 sm:p-8 backdrop-blur-xl shadow-[0_30px_70px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-border/100"
+                <div 
+                  key={item.id}
+                  className="rounded-3xl bg-card/60 border border-border/80 p-6 backdrop-blur-xl shadow-sm transition-all duration-300 hover:border-amber-500/20 hover:bg-amber-500/5 flex flex-col justify-between group"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-border/40 mb-6">
-                    <div className="flex items-center gap-3">
+                  <div className="space-y-4">
+                    {/* Top Row: Icon & Action */}
+                    <div className="flex justify-between items-center">
                       <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20 text-amber-500 shadow-sm">
                         <IconComp className="w-5 h-5" />
                       </div>
-                      <div>
-                        <h2 className="text-lg font-serif font-bold text-foreground tracking-wide">
-                          {sect.title}
-                        </h2>
-                        <p className="text-[10px] text-muted-foreground/60 font-mono">Last updated: {sect.lastUpdated}</p>
-                      </div>
+                      <Link 
+                        href={item.link}
+                        className="inline-flex items-center gap-1 text-[11px] font-mono text-muted-foreground hover:text-[#E0A154] transition-colors"
+                      >
+                        Read Full Page <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                      </Link>
                     </div>
+
+                    {/* Policy Title & Summary */}
+                    <div className="space-y-1.5">
+                      <h2 className="text-base font-serif font-bold text-foreground group-hover:text-[#E0A154] transition-colors">
+                        {item.title}
+                      </h2>
+                      <p className="text-[12px] text-muted-foreground leading-relaxed">
+                        {item.summary}
+                      </p>
+                    </div>
+
+                    {/* Core Registry Guidelines */}
+                    <ul className="space-y-1.5 pt-3 border-t border-border/30 text-[11px] text-muted-foreground/80 list-none pl-0">
+                      {item.keyPoints.map((pt, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="w-1 h-1 rounded-full bg-amber-500 shrink-0 mt-1.5" />
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-6 font-sans">
-                    {sect.intro}
-                  </p>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {sect.points.map((point, index) => (
-                      <div key={index} className="space-y-2 p-4 rounded-2xl bg-card border border-border/40 hover:border-border/60 transition-colors">
-                        <h3 className="text-xs font-bold text-foreground">
-                          {point.heading}
-                        </h3>
-                        <p className="text-[11px] text-muted-foreground leading-relaxed">
-                          {point.description}
-                        </p>
-                      </div>
-                    ))}
+                  <div className="pt-6">
+                    <Link 
+                      href={item.link}
+                      className="w-full h-9 rounded-xl bg-card border border-border/80 hover:border-amber-500/30 flex items-center justify-center text-xs font-semibold text-foreground group-hover:text-amber-500 transition-all font-sans"
+                    >
+                      View Policy Registry
+                    </Link>
                   </div>
-                </section>
+                </div>
               );
             })}
           </div>
@@ -185,7 +155,7 @@ export default function PoliciesPage() {
           <div className="mt-16 max-w-xl mx-auto text-center p-8 rounded-3xl bg-gradient-to-br from-amber-950/20 via-card to-background border border-border/60 shadow-xl backdrop-blur-md">
             <h3 className="font-serif font-bold text-lg text-foreground mb-2">Have a question about our policies?</h3>
             <p className="text-xs text-muted-foreground leading-relaxed mb-6">
-              If you have any doubts regarding our licenses, cancellations, or custom deliverables, feel free to contact us.
+              If you have any doubts regarding our milestone payments, licenses, or security reporting, feel free to contact us.
             </p>
             <Link
               href="/contact"

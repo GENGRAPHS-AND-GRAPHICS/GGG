@@ -79,7 +79,7 @@ export function Footer() {
               <BrandLogo size="md" />
             </div>
             
-            <p className="flex-1 text-[11px] text-muted-foreground/75 leading-relaxed text-justify max-w-4xl font-sans">
+            <p className="flex-1 text-xs text-muted-foreground/75 leading-relaxed text-justify max-w-4xl font-sans">
               GENGRAPHS AND GRAPHICS is committed to bringing ideas to life by making high-quality, impactful design accessible to individuals, brands, and businesses around the world. We do this by delivering tailored creative solutions that blend artistic vision with strategic thinking. Our custom graphics, branding packages, and visual storytelling services help clients communicate their message effectively, elevate their brand identity, and captivate their audiences.
             </p>
           </div>
@@ -94,7 +94,7 @@ export function Footer() {
             <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 text-[10px] sm:text-xs text-muted-foreground/60 font-medium">
               <Link href="/cookie-policy" className="hover:text-foreground transition-colors">Cookie Policy</Link>
               <span className="text-border/60">|</span>
-              <Link href="/privacy-notice" className="hover:text-foreground transition-colors">Privacy Notice</Link>
+              <Link href="/disclaimer" className="hover:text-foreground transition-colors">Disclaimer</Link>
               <span className="text-border/60">|</span>
               <Link href="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</Link>
               <span className="text-border/60">|</span>
