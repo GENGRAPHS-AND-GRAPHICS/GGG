@@ -28,18 +28,11 @@ export function Footer() {
     <>
       <footer className="border-t border-border bg-card/30 backdrop-blur-xl relative z-10">
         <div className="max-w-7xl mx-auto px-6 py-12 text-xs">
-          {/* Top Row: Full-width Branding & Description */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-border/40 pb-8 mb-10">
-            <div className="flex items-center gap-3">
-              <img src="/icons/logo.png" alt="Logo" className="h-9 w-auto object-contain drop-shadow-sm" />
-              <BrandLogo size="md" />
-            </div>
-          </div>
+          
+          {/* Top Row: 3 Grid Columns for Directories */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start mb-4">
 
-          {/* Grid Columns for Directories */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 items-start">
-
-            {/* Column 2: Navigation & Security */}
+            {/* Column 1: Navigation Workspace & Secure Settlement */}
             <div className="space-y-6">
               <div className="space-y-2.5">
                 <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Navigation Workspace</h4>
@@ -48,62 +41,129 @@ export function Footer() {
                   <Link href="#live-demo" className="hover:text-foreground transition-colors text-xs">Active Blueprints</Link>
                 </div>
               </div>
+            </div>
 
-              <div className="space-y-2.5">
-                <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Secure Settlement</h4>
-                <div className="flex items-center gap-1.5 text-xs text-muted-foreground bg-muted border border-border p-2 rounded-lg max-w-[220px]">
-                  <Shield className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Encrypted Ledger Gateway Active</span>
-                </div>
+            {/* Column 2: Contact Hub */}
+            <div className="space-y-2.5">
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Contact Hub</h4>
+              <div className="flex flex-col gap-2 text-muted-foreground/80">
+                <a href="mailto:info@gengraphsandgraphics.com" className="flex items-center gap-2 hover:text-foreground transition-colors text-xs">
+                  <Mail className="w-3.5 h-3.5" /> info@gengraphsandgraphics.com
+                </a>
+                <a href="tel:+919211217121" className="flex items-center gap-2 hover:text-foreground transition-colors text-xs">
+                  <Phone className="w-3.5 h-3.5" /> +91 9211217121
+                </a>
               </div>
             </div>
 
-            {/* Column 3: Contact & Socials */}
-            <div className="space-y-6">
-              <div className="space-y-2.5">
-                <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Contact Hub</h4>
-                <div className="flex flex-col gap-2 text-muted-foreground/80">
-                  <a href="mailto:info@gengraphsandgraphics.com" className="flex items-center gap-2 hover:text-foreground transition-colors text-xs">
-                    <Mail className="w-3.5 h-3.5" /> info@gengraphsandgraphics.com
-                  </a>
-                  <a href="tel:+919211217121" className="flex items-center gap-2 hover:text-foreground transition-colors text-xs">
-                    <Phone className="w-3.5 h-3.5" /> +91 9211217121
-                  </a>
-                </div>
-              </div>
-
-              <div className="space-y-2.5">
-                <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Social Networks</h4>
-                <div className="flex items-center gap-3">
-                  <a href="https://www.linkedin.com/company/gengraphs-and-graphics-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><FaLinkedin className="w-4 h-4" /></a>
-                  <a href="https://www.instagram.com/gengraphs_and_graphics?igsh=MWxvZHc2Y2g0YjVpNQ==" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><FaInstagram className="w-4 h-4" /></a>
-                  <a href="https://x.com/GENGRAPHS" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors"><FaXTwitter className="w-4 h-4" /></a>
-                  <a href="https://www.youtube.com/@GENGRAPHS_AND_GRAPHICS" className="text-muted-foreground hover:text-foreground transition-colors"><FaYoutube className="w-4 h-4" /></a>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors"><FaFacebook className="w-4 h-4" /></a>
-                </div>
-              </div>
-            </div>
-
-            {/* Column 4: GENGRAPHS AND GRAPHICS */}
-            <div className="space-y-4">
-              <div className="space-y-2.5">
-                <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">GENGRAPHS AND GRAPHICS</h4>
-                <div className="flex flex-col gap-1.5 text-muted-foreground/80">
-                  <Link href="/about" className="hover:text-foreground transition-colors text-xs">About Us</Link>
-                  <Link href="/policies" className="hover:text-foreground transition-colors text-xs">Policies</Link>
-                  <Link href="/faq" className="hover:text-foreground transition-colors text-xs">FAQ</Link>
-                  <Link href="/contact" className="hover:text-foreground transition-colors text-xs">Contact Us</Link>
-                </div>
+            {/* Column 3: GENGRAPHS AND GRAPHICS */}
+            <div className="space-y-2.5">
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">GENGRAPHS AND GRAPHICS</h4>
+              <div className="flex flex-col gap-1.5 text-muted-foreground/80">
+                <Link href="/about" className="hover:text-foreground transition-colors text-xs">About Us</Link>
+                <Link href="/policies" className="hover:text-foreground transition-colors text-xs">Policies</Link>
+                <Link href="/faq" className="hover:text-foreground transition-colors text-xs">FAQ</Link>
+                <Link href="/contact" className="hover:text-foreground transition-colors text-xs">Contact Us</Link>
               </div>
             </div>
 
           </div>
-        </div>
 
-        {/* Footer Bottom copyright seal */}
-        <div className="text-center py-4 border-t border-border text-xs text-muted-foreground/60 font-mono">
-          <p>© {new Date().getFullYear()} GENGRAPHS AND GRAPHICS PVT LTD®. ALL RIGHTS RESERVED.</p>
-          {/* <p className="tracking-tighter">BUILT FOR POWER BI TOPOLOGY</p> */}
+          {/* Border Divider */}
+          <div className="border-t border-border/40 my-4" />
+
+          {/* Middle Row: Logo on left, long paragraph on right */}
+          <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 justify-between">
+            <div className="flex items-center gap-3 shrink-0">
+              <img src="/icons/logo.png" alt="Logo" className="h-9 w-auto object-contain drop-shadow-sm" />
+              <BrandLogo size="md" />
+            </div>
+            
+            <p className="flex-1 text-[11px] text-muted-foreground/75 leading-relaxed text-justify max-w-4xl font-sans">
+              GENGRAPHS AND GRAPHICS is committed to bringing ideas to life by making high-quality, impactful design accessible to individuals, brands, and businesses around the world. We do this by delivering tailored creative solutions that blend artistic vision with strategic thinking. Our custom graphics, branding packages, and visual storytelling services help clients communicate their message effectively, elevate their brand identity, and captivate their audiences.
+            </p>
+          </div>
+
+          {/* Border Divider */}
+          <div className="border-t border-border/40 my-6" />
+
+          {/* Bottom Section: Cookie/Notice Links, Copyright, and centered Social Icons */}
+          <div className="flex flex-col items-center justify-center space-y-4">
+            
+            {/* Compliance Links */}
+            <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 text-[10px] sm:text-xs text-muted-foreground/60 font-medium">
+              <Link href="/cookie-policy" className="hover:text-foreground transition-colors">Cookie Policy</Link>
+              <span className="text-border/60">|</span>
+              <Link href="/privacy-notice" className="hover:text-foreground transition-colors">Privacy Notice</Link>
+              <span className="text-border/60">|</span>
+              <Link href="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</Link>
+              <span className="text-border/60">|</span>
+              <Link href="/report-vulnerability" className="hover:text-foreground transition-colors">Report a Vulnerability</Link>
+              <span className="text-border/60">|</span>
+              <Link href="/accessibility-policy" className="hover:text-foreground transition-colors">Accessibility Policy</Link>
+            </div>
+
+            {/* Copyright Statement */}
+            <p className="text-center text-[10px] text-muted-foreground/50 font-mono tracking-wide">
+              © {new Date().getFullYear()} GENGRAPHS AND GRAPHICS PVT LTD ®. ALL RIGHTS RESERVED.
+            </p>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-2.5 pt-2">
+              {/* Facebook */}
+              <a 
+                href="#" 
+                className="w-10 h-10 rounded-lg bg-[#3b5998] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
+              >
+                <FaFacebook className="w-5 h-5" />
+              </a>
+              
+              {/* Instagram */}
+              <a 
+                href="https://www.instagram.com/gengraphs_and_graphics?igsh=MWxvZHc2Y2g0YjVpNQ==" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-lg bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
+              >
+                <FaInstagram className="w-5 h-5" />
+              </a>
+
+              {/* LinkedIn */}
+              <a 
+                href="https://www.linkedin.com/company/gengraphs-and-graphics-pvt-ltd/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-lg bg-[#0077b5] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
+              >
+                <FaLinkedin className="w-5 h-5" />
+              </a>
+
+              {/* X (formerly Twitter) */}
+              <a 
+                href="https://x.com/GENGRAPHS" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-lg bg-[#1a1a1a] border border-neutral-800/40 flex items-center justify-center text-zinc-700 hover:text-zinc-500 hover:scale-105 transition-all shadow-sm"
+              >
+                <FaXTwitter className="w-4 h-4" />
+              </a>
+
+              {/* YouTube */}
+              <a 
+                href="https://www.youtube.com/@GENGRAPHS_AND_GRAPHICS" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-lg bg-[#a82020] flex items-center justify-center hover:opacity-90 hover:scale-105 transition-all shadow-sm"
+              >
+                <div className="flex flex-col items-center justify-center leading-none text-center font-sans select-none scale-90">
+                  <span className="text-white text-[9px] font-black uppercase tracking-tight">You</span>
+                  <span className="bg-white text-[#a82020] px-0.5 py-px rounded-[2px] text-[7px] font-bold uppercase tracking-tighter mt-0.5">Tube</span>
+                </div>
+              </a>
+            </div>
+
+          </div>
+
         </div>
       </footer>
 
