@@ -18,7 +18,7 @@ export function Hero() {
   }, []);
 
   return (
-    <div className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-20 lg:pt-0 overflow-hidden">
+    <div className="relative w-full min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-16 lg:pt-22 overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none flex items-center justify-center">
         <video
@@ -38,40 +38,47 @@ export function Hero() {
 
         {/* Left Column: Text & Actions */}
         <div className="flex flex-col justify-center order-1 lg:order-1 z-20 lg:pr-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/20 bg-amber-500/5 mb-6 self-start backdrop-blur-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-              <span className="text-xs font-medium text-amber-500 dark:text-amber-400">Available for Projects</span>
-            </div>
-          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl lg:text-4xl font-serif font-semibold tracking-tight mb-6 leading-[1.1]"
+            className="text-[42px] sm:text-[64px] md:text-[84px] lg:text-[100px] xl:text-[115px] font-serif font-bold tracking-tight mb-6 leading-[0.95]"
+            style={{ fontFamily: 'var(--font-serif), Garamond, Georgia, serif' }}
           >
             <span className="text-[#E0A154]">GENGRAPHS</span> <br />
-            <span className="text-[#414141] dark:text-[#525252] transition-colors">AND GRAPHICS PVT LTD</span>
-            <sup className="text-[0.5em] text-[#414141] dark:text-[#525252] ml-[0.1em] font-sans font-normal align-super">
+            <span className="text-[#414141] dark:text-[#525252] transition-colors">AND GRAPHICS PVT. LTD.</span>
+            <sup className="text-[0.3em] text-[#414141] dark:text-[#525252] ml-[0.05em] font-sans font-normal align-super">
               ®
             </sup>
           </motion.h1>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-muted-foreground text-[15px] lg:text-[17px] leading-relaxed mb-8 max-w-[480px] font-light"
+            className="mb-8 max-w-[520px]"
           >
-            As a professional Power BI developer, I rely on top-notch tools to create stunning executive dashboards that captivate and engage. Skip the endless development cycles and get premium access.
-          </motion.p>
+            <p className="text-muted-foreground text-[13px] lg:text-[14px] leading-relaxed font-light italic">
+              <strong className="text-[#E0A154] not-italic font-semibold">Founder’s note:</strong> “Established in 2025, GENGRAPHS AND GRAPHICS PVT. LTD. is a dynamic business solutions provider dedicated to empowering both B2B and B2C clients through tailored, high-impact strategies. We specialize in the seamless integration of Data Analytics, Graphic Design, and Project Management, transforming complex data into actionable insights and visually compelling narratives. By bridging the gap between technical analytics and creative design, and backing it with rigorous project execution, our team delivers custom-engineered solutions designed to drive growth, streamline operations, and elevate your brand's competitive edge in the modern market.”
+            </p>
+            <div className="mt-2 flex items-center justify-end gap-2">
+              <span className="text-muted-foreground text-[13px] lg:text-[14px]">—</span>
+              <a 
+                href="https://www.linkedin.com/in/mohit-bhardwaj-7b1863120/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[13px] lg:text-[14px] font-semibold text-[#E0A154] hover:text-amber-400 transition-colors inline-flex items-center gap-1.5"
+              >
+                Mohit Bhardwaj
+                <svg className="w-4 h-4 text-[#0A66C2] dark:text-[#0A66C2] hover:opacity-80 transition-opacity" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
+          </motion.div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -80,7 +87,7 @@ export function Hero() {
             <button onClick={()=>router.push("/products")} className="px-8 py-3.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-black text-sm font-bold transition-all duration-300 shadow-[0_10px_20px_rgba(245,158,11,0.25)] hover:shadow-[0_10px_25px_rgba(245,158,11,0.4)] hover:-translate-y-0.5 cursor-pointer">
               Explore Products
             </button>
-          </motion.div>
+          </motion.div> */}
         </div>
 
         {/* Right Column: Subject Image with Orbiting Circles */}
