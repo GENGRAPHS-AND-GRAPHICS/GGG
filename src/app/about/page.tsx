@@ -19,7 +19,7 @@ export default function AboutPage() {
           {/* Tag & Subtitle */}
           <div className="flex flex-col items-center text-center mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-medium text-amber-500 mb-4 backdrop-blur-md">
-              <span>Founded in 2026</span>
+              <span>Founded in 2025</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight mb-4 select-none leading-tight">
