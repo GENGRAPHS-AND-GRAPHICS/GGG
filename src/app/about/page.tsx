@@ -44,7 +44,7 @@ export default function AboutPage() {
                 </h2>
                 <div className="h-0.5 w-8 bg-amber-500 rounded-full mb-6" />
                 <p className="text-xs text-muted-foreground leading-relaxed mb-6">
-                  Founded in <span className="text-foreground font-semibold">2026 by <Link href="https://www.linkedin.com/in/mohitbhardwaj-7b1863120/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 underline decoration-amber-500/30 underline-offset-4 transition-colors">Mohit Bhardwaj</Link></span>, <span className="font-serif text-[#E0A154] font-medium">GENGRAPHS</span> <span className="font-serif text-[#414141] dark:text-[#a3a3a3] font-medium">AND GRAPHICS PVT LTD®</span> stands at the intersection of complex quantitative analysis and high-fidelity product design. 
+                  Founded in <span className="text-foreground font-semibold">2026 by <Link href="https://www.linkedin.com/in/mohit-bhardwaj-7b1863120/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 underline decoration-amber-500/30 underline-offset-4 transition-colors">Mohit Bhardwaj</Link></span>, <span className="font-serif text-[#E0A154] font-medium">GENGRAPHS</span> <span className="font-serif text-[#414141] dark:text-[#a3a3a3] font-medium">AND GRAPHICS PVT LTD®</span> stands at the intersection of complex quantitative analysis and high-fidelity product design. 
                 </p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   We don&apos;t just build dashboards or graphics. We build cognitive workflows that allow decision-makers to visual-inspect operations and execute strategies rapidly.
@@ -56,7 +56,7 @@ export default function AboutPage() {
                   <div className="text-[10px] text-muted-foreground uppercase tracking-widest font-mono">Led By</div>
                   <div className="text-xs font-semibold text-foreground mt-0.5">
                     <Link
-                      href="https://www.linkedin.com/in/mohitbhardwaj-7b1863120/"
+                      href="https://www.linkedin.com/in/mohit-bhardwaj-7b1863120/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-amber-500 transition-colors"

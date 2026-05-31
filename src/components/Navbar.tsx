@@ -183,7 +183,7 @@ export function Navbar() {
                           <p className="mt-2 text-[10px] text-muted-foreground leading-relaxed">
                             Founded in 2026 by{" "}
                             <a
-                              href="https://www.linkedin.com/in/mohitbhardwaj-7b1863120/"
+                              href="https://www.linkedin.com/in/mohit-bhardwaj-7b1863120/"
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}

@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Outfit, Geist, EB_Garamond } from "next/font/google";
+import { Inter, Outfit, Geist, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
-const garamond = EB_Garamond({ subsets: ['latin'], variable: '--font-serif' });
+const garamond = Cormorant_Garamond({ 
+  subsets: ['latin'], 
+  variable: '--font-serif',
+  weight: ['300', '400', '500', '600', '700']
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gengraphsandgraphics.com"),

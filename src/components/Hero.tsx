@@ -43,7 +43,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[42px] sm:text-[64px] md:text-[84px] lg:text-[100px] xl:text-[115px] font-serif font-bold tracking-tight mb-6 leading-[0.95]"
+            className="pt-16 sm:pt-0 text-[42px] sm:text-[64px] md:text-[84px] lg:text-[100px] xl:text-[115px] font-serif tracking-tight font-semibold mb-6 leading-[0.95]"
             style={{ fontFamily: 'var(--font-serif), Garamond, Georgia, serif' }}
           >
             <span className="text-[#E0A154]">GENGRAPHS</span> <br />
@@ -65,7 +65,7 @@ export function Hero() {
             <div className="mt-2 flex items-center justify-end gap-2">
               <span className="text-muted-foreground text-[13px] lg:text-[14px]">—</span>
               <a 
-                href="https://www.linkedin.com/in/mohitbhardwaj-7b1863120/"
+                href="https://www.linkedin.com/in/mohit-bhardwaj-7b1863120/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[13px] lg:text-[14px] font-semibold text-[#E0A154] hover:text-amber-400 transition-colors inline-flex items-center gap-1.5"
@@ -78,16 +78,16 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex items-center gap-4"
           >
             <button onClick={()=>router.push("/products")} className="px-8 py-3.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-black text-sm font-bold transition-all duration-300 shadow-[0_10px_20px_rgba(245,158,11,0.25)] hover:shadow-[0_10px_25px_rgba(245,158,11,0.4)] hover:-translate-y-0.5 cursor-pointer">
-              Explore Products
+              Explore Services
             </button>
-          </motion.div> */}
+          </motion.div>
         </div>
 
         {/* Right Column: Subject Image with Orbiting Circles */}
