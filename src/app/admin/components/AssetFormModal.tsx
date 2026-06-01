@@ -122,7 +122,7 @@ export function AssetFormModal({
 
     async function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
         const file = e.target.files?.[0];
-        if (file && thumbnails.length < 4) {
+        if (file && thumbnails.length < 10) {
             setIsLoading(true);
             setUploadingImageProgress(0);
             try {
@@ -371,7 +371,7 @@ export function AssetFormModal({
 
                                 {/* THUMBNAILS UPLOAD */}
                                 <div className="space-y-1.5">
-                                    <div className="text-[10px] font-semibold text-muted-foreground/80 uppercase tracking-wider">Thumbnails (Max 4)</div>
+                                    <div className="text-[10px] font-semibold text-muted-foreground/80 uppercase tracking-wider">Thumbnails (Max 10)</div>
                                     <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
                                         {thumbnails.map((thumb, idx) => (
                                             <div 
@@ -407,7 +407,7 @@ export function AssetFormModal({
                                                 <span className="text-[9px] font-mono text-amber-400 font-bold">{uploadingImageProgress}%</span>
                                             </div>
                                         )}
-                                        {thumbnails.length < 4 && uploadingImageProgress === null && (
+                                        {thumbnails.length < 10 && uploadingImageProgress === null && (
                                             <div className="relative rounded-xl border border-dashed border-[#3E291F] hover:border-amber-500/50 bg-[#130B09]/40 hover:bg-[#130B09]/80 flex flex-col items-center justify-center aspect-video cursor-pointer transition-all duration-200 group">
                                                 <input type="file" accept="image/*" onChange={handleImageChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" />
                                                 <Plus className="w-5 h-5 text-muted-foreground group-hover:text-amber-500 transition-colors" />

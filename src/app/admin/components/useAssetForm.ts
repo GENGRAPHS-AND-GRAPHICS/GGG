@@ -100,7 +100,7 @@ export function useAssetForm(editingPost: any | null, onSaveSuccess?: () => void
     // File handlers
     async function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
         const file = e.target.files?.[0];
-        if (file && thumbnails.length < 4) {
+        if (file && thumbnails.length < 10) {
             setIsLoading(true);
             setUploadingImageProgress(0);
             try {

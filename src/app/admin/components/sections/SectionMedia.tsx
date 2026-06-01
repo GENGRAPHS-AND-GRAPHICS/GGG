@@ -41,7 +41,7 @@ export function SectionMedia({
             <div className="space-y-2">
                 <div>
                     <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest block">
-                        Thumbnails (Max 4) *
+                        Thumbnails (Max 10) *
                     </label>
                     <p className="text-[11px] text-muted-foreground">Select one as primary to display on the marketplace grid card.</p>
                 </div>
@@ -88,7 +88,7 @@ export function SectionMedia({
                             <span className="text-[9px] font-mono text-amber-400 font-bold">{uploadingImageProgress}%</span>
                         </div>
                     )}
-                    {thumbnails.length < 4 && uploadingImageProgress === null && (
+                    {thumbnails.length < 10 && uploadingImageProgress === null && (
                         <div className="relative rounded-xl border border-dashed border-[#3E291F] hover:border-amber-500/50 bg-[#130B09]/40 hover:bg-[#130B09]/80 flex flex-col items-center justify-center aspect-video cursor-pointer transition-all duration-200 group">
                             <input 
                                 type="file" 
