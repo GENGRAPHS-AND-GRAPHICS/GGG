@@ -1,8 +1,20 @@
-import { FileText, Edit3 } from "lucide-react";
+import { FileText, Edit3, Trash2, Loader2 } from "lucide-react";
 import { ContentRenderer } from "@/components/tiptap/ContentRenderer";
 import { getMediaUrl } from "@/lib/utils";
 
-export function AssetGrid({ posts, onEdit, onCreate }: { posts: any[], onEdit: (post: any) => void, onCreate: () => void }) {
+export function AssetGrid({ 
+    posts, 
+    onEdit, 
+    onCreate, 
+    onDelete, 
+    deletingId 
+}: { 
+    posts: any[], 
+    onEdit: (post: any) => void, 
+    onCreate: () => void, 
+    onDelete: (post: any) => void, 
+    deletingId?: string | null 
+}) {
     if (posts.length === 0) {
         return (
             <div className="border border-border bg-card p-10 rounded-xl text-center max-w-md mx-auto shadow-sm">
@@ -48,7 +60,21 @@ export function AssetGrid({ posts, onEdit, onCreate }: { posts: any[], onEdit: (
                                 </div>
                             )}
                         </div>
-                        <div className="pt-2 border-t border-border flex items-center justify-end">
+                        <div className="pt-2 border-t border-border flex items-center justify-between">
+                            {deletingId === post.id ? (
+                                <span className="text-[11px] font-medium text-muted-foreground flex items-center gap-1">
+                                    <Loader2 className="w-3 h-3 animate-spin text-red-500" /> Deleting...
+                                </span>
+                            ) : (
+                                <button 
+                                    onClick={() => onDelete(post)} 
+                                    disabled={!!deletingId}
+                                    className="text-[11px] font-medium text-red-500/80 hover:text-red-500 hover:underline flex items-center gap-1 cursor-pointer transition-all disabled:opacity-50"
+                                >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                    Delete
+                                </button>
+                            )}
                             <button onClick={() => onEdit(post)} className="text-[11px] font-medium text-amber-500 hover:text-amber-400 hover:underline flex items-center gap-0.5 cursor-pointer">Configure Space →</button>
                         </div>
                     </div>

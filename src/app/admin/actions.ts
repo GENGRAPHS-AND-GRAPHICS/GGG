@@ -125,6 +125,26 @@ export async function updatePostAction(formData: FormData) {
     return { success: true };
 }
 
+export async function deletePostAction(id: string) {
+    await requireAdmin();
+
+    if (!id) {
+        throw new Error("ID is required");
+    }
+
+    // Delete associated orders first to prevent foreign key constraint violations
+    await db.delete(ordersTable).where(eq(ordersTable.postId, id));
+
+    // Delete the post
+    await db.delete(postsTable).where(eq(postsTable.id, id));
+
+    revalidatePath("/");
+    revalidatePath("/products");
+    revalidatePath("/admin");
+
+    return { success: true };
+}
+
 export async function getPostsAction() {
     await requireAdmin();
 

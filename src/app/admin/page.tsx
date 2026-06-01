@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { Shield, Plus, Loader2 } from "lucide-react";
+import { Shield, Plus, Loader2, Trash2 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { getPostsAction, getSystemSettingsAction, updateSystemSettingAction } from "./actions";
+import { getPostsAction, getSystemSettingsAction, updateSystemSettingAction, deletePostAction } from "./actions";
 import { AdminMetrics } from "./components/AdminMetrics";
 import { AssetGrid } from "./components/AssetGrid";
 import { toast } from "sonner";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 
 export default function AdminPage() {
     const { data: sessionData, isPending } = authClient.useSession();
@@ -30,6 +31,25 @@ export default function AdminPage() {
         enabled: !!sessionData?.user?.isAdmin,
     });
     const [isUpdatingSettings, setIsUpdatingSettings] = useState(false);
+    const [isDeleting, setIsDeleting] = useState<string | null>(null);
+    const [postToDelete, setPostToDelete] = useState<any | null>(null);
+
+    async function handleDeletePost(id: string) {
+        setIsDeleting(id);
+        try {
+            await deletePostAction(id);
+            await queryClient.invalidateQueries({ queryKey: ['adminPosts'] });
+            toast.success("Asset deleted successfully");
+        } catch (err: any) {
+            toast.error("Failed to delete asset: " + err.message);
+        } finally {
+            setIsDeleting(null);
+        }
+    }
+
+    function triggerDeleteConfirm(post: any) {
+        setPostToDelete(post);
+    }
 
     async function handleTogglePowerbi() {
         if (isUpdatingSettings) return;
@@ -177,9 +197,46 @@ export default function AdminPage() {
                         <p className="text-xs">Loading assets...</p>
                     </div>
                 ) : (
-                    <AssetGrid posts={posts} onEdit={handleEditClick} onCreate={openCreateForm} />
+                    <AssetGrid 
+                        posts={posts} 
+                        onEdit={handleEditClick} 
+                        onCreate={openCreateForm} 
+                        onDelete={triggerDeleteConfirm}
+                        deletingId={isDeleting}
+                    />
                 )}
             </div>
+
+            {/* Deletion Confirmation Modal */}
+            <Dialog open={!!postToDelete} onOpenChange={(open) => { if (!open) setPostToDelete(null); }}>
+                <DialogContent className="sm:max-w-md bg-neutral-900 border border-border text-foreground">
+                    <DialogHeader>
+                        <DialogTitle className="text-sm font-bold text-white uppercase tracking-wider">Confirm Deletion</DialogTitle>
+                        <DialogDescription className="text-xs text-muted-foreground mt-2">
+                            Are you sure you want to delete <span className="font-semibold text-white">"{postToDelete?.title}"</span>? This action is permanent and will remove all associated orders.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter className="mt-4 flex gap-2 justify-end">
+                        <button 
+                            onClick={() => setPostToDelete(null)}
+                            className="h-8 px-4 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs font-medium text-muted-foreground hover:text-white transition-all cursor-pointer border border-border/40"
+                        >
+                            Cancel
+                        </button>
+                        <button 
+                            onClick={() => {
+                                if (postToDelete) {
+                                    handleDeletePost(postToDelete.id);
+                                    setPostToDelete(null);
+                                }
+                            }}
+                            className="h-8 px-4 rounded-lg bg-red-600 hover:bg-red-500 text-xs font-medium text-white transition-all flex items-center gap-1.5 cursor-pointer animate-in fade-in zoom-in duration-100"
+                        >
+                            <Trash2 className="w-3.5 h-3.5" /> Confirm Delete
+                        </button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 }
