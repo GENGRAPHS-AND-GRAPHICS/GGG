@@ -25,7 +25,7 @@ export function AssetGrid({
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[280px] gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 auto-rows-[280px] gap-4">
             {posts.map((post) => (
                 <div key={post.id} className={`group bg-card rounded-xl border border-border hover:border-border/80 transition-all overflow-hidden flex flex-col relative shadow-sm hover:shadow-md ${post.aspect === 'vertical' ? 'row-span-2' : 'row-span-1'}`}>
                     <div className={`w-full ${post.aspect === 'vertical' ? 'flex-1' : 'aspect-video'} bg-muted/40 relative flex items-center justify-center border-b border-border overflow-hidden`}>

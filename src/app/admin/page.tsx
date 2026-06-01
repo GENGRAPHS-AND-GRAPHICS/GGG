@@ -114,7 +114,7 @@ export default function AdminPage() {
 
     return (
         <div className="min-h-screen bg-transparent text-foreground overflow-x-hidden relative select-none">
-            <div className="max-w-7xl mx-auto px-6 pt-28 pb-8 space-y-8 relative z-10">
+            <div className="max-w-[1450px] mx-auto px-6 pt-28 pb-8 space-y-8 relative z-10">
                 {/* Metrics */}
                 <AdminMetrics posts={posts} />
 

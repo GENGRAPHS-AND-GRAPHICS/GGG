@@ -42,7 +42,7 @@ export default function Home() {
           {/* Top fade — blends with Parallax's bottom */}
           <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#0B0908] to-transparent z-10 pointer-events-none" />
           
-          <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="max-w-[1450px] mx-auto px-6 py-12">
             <div className="space-y-1 mb-8">
               <h2 className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Sandbox Showroom</h2>
               <p className="text-sm text-muted-foreground">Hover over active configurations to boot live workspace previews.</p>
