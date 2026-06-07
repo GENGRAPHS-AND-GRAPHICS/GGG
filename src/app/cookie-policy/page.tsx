@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowLeft, Cookie, Mail, Globe, Shield, ExternalLink, Settings } from 'lucide-react';
 
 export const metadata = {
-  title: "Cookie Policy - GENGRAPHS AND GRAPHICS PVT LTD®",
+  title: "Cookie Policy - GENGRAPHS AND GRAPHICS PVT LTD™",
   description: "Learn how we use cookies and tracking technology to deliver a secure and optimized user experience.",
 };
 

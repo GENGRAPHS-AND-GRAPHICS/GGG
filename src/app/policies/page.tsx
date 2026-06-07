@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Cookie, ShieldAlert, Scale, Lock, Eye } from 'lucide-react';
 
 export const metadata = {
-  title: "Compliance & Corporate Policies Hub - GENGRAPHS AND GRAPHICS PVT LTD®",
+  title: "Compliance & Corporate Policies Hub - GENGRAPHS AND GRAPHICS PVT LTD™",
   description: "Official legal registry for GENGRAPHS AND GRAPHICS (OPC) PVT. LTD. Access our Terms, Cookie Policy, Disclaimer, Security Disclosure, and Accessibility Charter.",
 };
 

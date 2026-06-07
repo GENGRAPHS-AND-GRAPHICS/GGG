@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowLeft, ShieldAlert, Scale, ExternalLink, Copyright, MapPin, Landmark } from 'lucide-react';
 
 export const metadata = {
-  title: "Disclaimer & Professional Liability - GENGRAPHS AND GRAPHICS PVT LTD®",
+  title: "Disclaimer & Professional Liability - GENGRAPHS AND GRAPHICS PVT LTD™",
   description: "Review our professional services disclaimer, limitations of liability, copyright bounds, and Haryana jurisdiction compliance.",
 };
 

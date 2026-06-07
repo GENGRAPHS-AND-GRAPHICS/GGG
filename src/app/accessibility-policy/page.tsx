@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowLeft, Eye, Keyboard, FileText, Compass, Palette, Layers, Film, Heart, Mail } from 'lucide-react';
 
 export const metadata = {
-  title: "Accessibility Policy - GENGRAPHS AND GRAPHICS PVT LTD®",
+  title: "Accessibility Policy - GENGRAPHS AND GRAPHICS PVT LTD™",
   description: "Read our WCAG 2.1 digital accessibility commitments, high contrast ratios, alt-text standards, and screen reader compatibility protocols.",
 };
 

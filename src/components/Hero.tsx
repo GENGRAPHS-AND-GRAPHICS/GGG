@@ -49,7 +49,7 @@ export function Hero() {
             <span className="text-[#E0A154]">GENGRAPHS</span> <br />
             <span className="text-[#414141] dark:text-[#525252] transition-colors">AND GRAPHICS PVT. LTD.</span>
             <sup className="text-[0.3em] text-[#414141] dark:text-[#525252] ml-[0.05em] font-sans font-normal align-super">
-              ®
+              ™
             </sup>
           </motion.h1>
 

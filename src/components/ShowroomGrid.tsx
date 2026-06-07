@@ -102,7 +102,7 @@ export function ShowroomGrid({ posts, limit }: ShowroomGridProps) {
                       <button
                         onClick={(e) => handlePurchase(e, post)}
                         disabled={status === 'processing' || status === 'success'}
-                        className={`relative z-30 h-7 rounded-lg text-[10px] font-semibold flex items-center gap-1 px-2.5 transition-all duration-300 border ${
+                        className={`relative z-30 h-8 rounded-lg text-xs font-semibold flex items-center gap-1.5 px-3 transition-all duration-300 border ${
                           status === 'success'
                             ? 'bg-emerald-500/20 border-emerald-500/30 text-emerald-600 dark:text-emerald-400 cursor-default'
                             : status === 'failed'
@@ -114,28 +114,28 @@ export function ShowroomGrid({ posts, limit }: ShowroomGridProps) {
                       >
                         <AnimatePresence mode="wait">
                           {status === 'processing' ? (
-                            <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-1">
-                              <Loader2 className="w-3 h-3 animate-spin" /> Pay...
+                            <motion.span key="proc" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-1.5">
+                              <Loader2 className="w-3.5 h-3.5 animate-spin" /> Pay...
                             </motion.span>
                           ) : status === 'success' ? (
-                            <motion.span key="succ" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-1">
-                              <CheckCircle2 className="w-3 h-3" /> Paid
+                            <motion.span key="succ" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-1.5">
+                              <CheckCircle2 className="w-3.5 h-3.5" /> Paid
                             </motion.span>
                           ) : status === 'failed' ? (
-                            <motion.span key="fail" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-1">
-                              <XCircle className="w-3 h-3" /> Retry
+                            <motion.span key="fail" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-1.5">
+                              <XCircle className="w-3.5 h-3.5" /> Retry
                             </motion.span>
                           ) : (
-                            <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-1">
-                              <ShoppingCart className="w-3 h-3" /> Buy
+                            <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-1.5">
+                              <ShoppingCart className="w-3.5 h-3.5" /> Buy
                             </motion.span>
                           )}
                         </AnimatePresence>
                       </button>
                     )}
                     {/* Expand Icon */}
-                    <div className="w-6 h-6 rounded-md bg-muted flex items-center justify-center border border-border text-muted-foreground group-hover:text-foreground group-hover:bg-amber-500/20 group-hover:border-amber-500/30 transition-all duration-300">
-                      <Maximize2 className="w-3 h-3" />
+                    <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center border border-border text-muted-foreground group-hover:text-foreground group-hover:bg-amber-500/20 group-hover:border-amber-500/30 transition-all duration-300">
+                      <Maximize2 className="w-3.5 h-3.5" />
                     </div>
                   </div>
                 </div>
@@ -175,7 +175,7 @@ export function ShowroomGridSkeleton({ count = 6 }: { count?: number }) {
               <div className="h-3.5 bg-neutral-800/80 rounded w-3/4"></div>
               <div className="h-2 bg-neutral-800/80 rounded w-1/2"></div>
             </div>
-            <div className="w-6 h-6 rounded-md bg-neutral-800/80 shrink-0"></div>
+            <div className="w-8 h-8 rounded-lg bg-neutral-800/80 shrink-0"></div>
           </div>
         </div>
       ))}

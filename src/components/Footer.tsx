@@ -105,7 +105,7 @@ export function Footer() {
 
             {/* Copyright Statement */}
             <p className="text-center text-[10px] text-muted-foreground/50 font-mono tracking-wide">
-              © {new Date().getFullYear()} GENGRAPHS AND GRAPHICS PVT LTD ®. ALL RIGHTS RESERVED.
+              © {new Date().getFullYear()} GENGRAPHS AND GRAPHICS PVT LTD™. ALL RIGHTS RESERVED.
             </p>
 
             {/* Social Icons */}

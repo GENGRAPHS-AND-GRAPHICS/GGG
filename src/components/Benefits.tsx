@@ -37,7 +37,7 @@ export function Benefits() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-base font-bold text-amber-500 uppercase tracking-widest leading-none">{item.title}</span>
-                  <h3 className="text-xs font-semibold text-foreground mt-1.5 tracking-tight">{item.subtitle}</h3>
+                  <span className="text-xs font-semibold text-foreground mt-1.5 tracking-tight">{item.subtitle}</span>
                 </div>
               </div>
               <div>
