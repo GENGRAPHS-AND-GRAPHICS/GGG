@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from "@/lib/utils";
+import { isStripped } from '@/lib/config';
 
 interface BrandLogoProps {
   className?: string;
@@ -31,11 +32,23 @@ export function BrandLogo({ className, size = 'md', customSizeClass, wrap = true
         fontFamily: 'var(--font-serif), Garamond, Georgia, serif'
       }}
     >
-      <span className="text-3xl text-[#E0A154] whitespace-nowrap">G</span>
-      <span className="text-3xl text-[#414141] dark:text-[#525252] transition-colors whitespace-nowrap">
-        GG
-      </span>
-     
+      {isStripped ? (
+        <>
+        <span className="font-serif text-3xl font-bold tracking-wider text-[#E0A154] dark:text-[#E0A154] transition-colors whitespace-nowrap">
+          MOHIT
+        </span>
+         <span className="font-serif text-3xl font-bold tracking-wider text-[#414141] dark:text-[#414141] transition-colors whitespace-nowrap">
+           BHARDWAJ
+        </span>
+        </>
+      ) : (
+        <>
+          <span className="text-3xl text-[#E0A154] whitespace-nowrap">G</span>
+          <span className="text-3xl text-[#414141] dark:text-[#525252] transition-colors whitespace-nowrap">
+            GG
+          </span>
+        </>
+      )}
     </span>
   );
 }

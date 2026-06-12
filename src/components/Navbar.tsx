@@ -20,6 +20,7 @@ import {
 import { BrandLogo } from './BrandLogo';
 import { useQuery } from '@tanstack/react-query';
 import { getSystemSettingsAction } from '@/app/admin/actions';
+import { isStripped } from '@/lib/config';
 
 const AdobeXDIcon = () => (
   <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#FF26BE]" fill="currentColor">
@@ -147,7 +148,7 @@ export function Navbar() {
           {/* Left: Logo & Brand */}
           <div className="flex-1 flex justify-start">
             <Link href="/" className="flex items-center gap-2 py-1 cursor-pointer">
-              <img src="/icons/logo.png" alt="Logo" className="h-11 w-auto object-contain drop-shadow-sm" />
+              <img src={isStripped ? "/icons/personal_logo.png" : "/icons/logo.png"} alt="Logo" className="h-11 w-auto object-contain drop-shadow-sm" />
               <BrandLogo size="md" className="pt-0.5" />
             </Link>
           </div>

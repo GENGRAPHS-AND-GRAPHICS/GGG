@@ -6,6 +6,7 @@ import { FaLinkedin, FaInstagram, FaYoutube, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import Link from 'next/link';
 import { BrandLogo } from './BrandLogo';
+import { isStripped } from '@/lib/config';
 
 export function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -75,7 +76,7 @@ export function Footer() {
           {/* Middle Row: Logo on left, long paragraph on right */}
           <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 justify-between">
             <div className="flex items-center gap-3 shrink-0">
-              <img src="/icons/logo.png" alt="Logo" className="h-9 w-auto object-contain drop-shadow-sm" />
+              <img src={isStripped ? "/icons/personal_logo.png" : "/icons/logo.png"} alt="Logo" className="h-9 w-auto object-contain drop-shadow-sm" />
               <BrandLogo size="md" />
             </div>
             
