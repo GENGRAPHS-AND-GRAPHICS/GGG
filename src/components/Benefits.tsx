@@ -1,20 +1,21 @@
 "use client";
 import { motion } from 'framer-motion';
 import { Eye, Target } from 'lucide-react';
+import { isStripped } from '@/lib/config';
 
 export function Benefits() {
   const items = [
     {
       icon: <Eye className="w-5 h-5 text-amber-500" />,
-      title: "OUR MISSION",
+      title: isStripped ? "My MISSION" :"OUR MISSION",
       subtitle: "Client-Centric Engineering",
-      desc: "We are committed to a customer-first approach that transforms complex data into your ultimate competitive advantage."
+      desc: `${isStripped ? "I am" :"We are "}, committed to a customer-first approach that transforms complex data into your ultimate competitive advantage.`
     },
     {
       icon: <Target className="w-5 h-5 text-amber-500" />,
-      title: "OUR VISION",
+      title: isStripped ? "MY VISION" :"OUR VISION",
       subtitle: "Mutual Success",
-      desc: "We envision a business landscape driven by true collaboration and shared growth."
+      desc: `${isStripped ? "I" :"We"} envision a business landscape driven by true collaboration and shared growth.`
     }
   ];
 

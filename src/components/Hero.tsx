@@ -50,7 +50,7 @@ export function Hero() {
           >
             {isStripped ? (
               <>
-                <span className="text-[0.45em] text-[#414141] dark:text-[#525252] block font-light leading-none mb-2 select-none">I’m</span>
+                <span className="text-[0.45em] text-[#E0A154] block font-light leading-none mb-2 select-none">I’m</span>
                 <span className="text-[#E0A154]">MOHIT</span> <br />
                 <span className="text-[#414141] dark:text-[#525252] transition-colors">BHARDWAJ</span>
               </>

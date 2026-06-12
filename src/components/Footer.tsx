@@ -48,8 +48,8 @@ export function Footer() {
             <div className="space-y-2.5">
               <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Contact Hub</h4>
               <div className="flex flex-col gap-2 text-muted-foreground/80">
-                <a href="mailto:info@gengraphsandgraphics.com" className="flex items-center gap-2 hover:text-foreground transition-colors text-xs">
-                  <Mail className="w-3.5 h-3.5" /> info@gengraphsandgraphics.com
+                <a href={isStripped ? "mailto:mohitbhardwaj8338@gmail.com" : "mailto:info@gengraphsandgraphics.com"} className="flex items-center gap-2 hover:text-foreground transition-colors text-xs">
+                  <Mail className="w-3.5 h-3.5" /> {isStripped ? "mohitbhardwaj8338@gmail.com" : "info@gengraphsandgraphics.com"}
                 </a>
                 <a href="tel:+919211217121" className="flex items-center gap-2 hover:text-foreground transition-colors text-xs">
                   <Phone className="w-3.5 h-3.5" /> +91 9211217121
@@ -59,14 +59,16 @@ export function Footer() {
 
             {/* Column 3: GENGRAPHS AND GRAPHICS */}
             <div className="space-y-2.5">
-              <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">GENGRAPHS AND GRAPHICS</h4>
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">{isStripped ? "MOHIT BHARDWAJ" : "GENGRAPHS AND GRAPHICS"}</h4>
               <div className="flex flex-col gap-1.5 text-muted-foreground/80">
                 <Link href="/about" className="hover:text-foreground transition-colors text-xs">
                   {isStripped ? "About Me" : "About Us"}
                 </Link>
                 <Link href="/policies" className="hover:text-foreground transition-colors text-xs">Policies</Link>
                 <Link href="/faq" className="hover:text-foreground transition-colors text-xs">FAQ</Link>
-                <Link href="/contact" className="hover:text-foreground transition-colors text-xs">Contact Us</Link>
+                <Link href="/contact" className="hover:text-foreground transition-colors text-xs">
+                  {isStripped ? "Contact Me" : "Contact Us"}
+                </Link>
               </div>
             </div>
 
@@ -83,7 +85,7 @@ export function Footer() {
             </div>
             
             <p className="flex-1 text-xs text-muted-foreground/75 leading-relaxed text-justify max-w-4xl font-sans">
-              GENGRAPHS AND GRAPHICS is committed to bringing ideas to life by making high-quality, impactful design accessible to individuals, brands, and businesses around the world. We do this by delivering tailored creative solutions that blend artistic vision with strategic thinking. Our custom graphics, branding packages, and visual storytelling services help clients communicate their message effectively, elevate their brand identity, and captivate their audiences.
+              {isStripped ? "I am" : "GENGRAPHS AND GRAPHICS is"} committed to bringing ideas to life by making high-quality, impactful design accessible to individuals, brands, and businesses around the world. {isStripped ? "I" : "We"} do this by delivering tailored creative solutions that blend artistic vision with strategic thinking. {isStripped ? "My" : "Our"} custom graphics, branding packages, and visual storytelling services help clients communicate their message effectively, elevate their brand identity, and captivate their audiences.
             </p>
           </div>
 
@@ -108,61 +110,96 @@ export function Footer() {
 
             {/* Copyright Statement */}
             <p className="text-center text-[10px] text-muted-foreground/50 font-mono tracking-wide">
-              © {new Date().getFullYear()} GENGRAPHS AND GRAPHICS PVT LTD™. ALL RIGHTS RESERVED.
+              © {new Date().getFullYear()} {isStripped ? "Mohit Bhardwaj. All Rights Reserved." : "GENGRAPHS AND GRAPHICS PVT LTD™. ALL RIGHTS RESERVED."}
             </p>
-
             {/* Social Icons */}
             <div className="flex items-center gap-2.5 pt-2">
-              {/* Facebook */}
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-lg bg-[#3b5998] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
-              >
-                <FaFacebook className="w-5 h-5" />
-              </a>
-              
-              {/* Instagram */}
-              <a 
-                href="https://www.instagram.com/gengraphs_and_graphics?igsh=MWxvZHc2Y2g0YjVpNQ==" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-lg bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
-              >
-                <FaInstagram className="w-5 h-5" />
-              </a>
+              {isStripped ? (
+                <>
+                  {/* Facebook - Personal */}
+                  <a 
+                    href="https://www.facebook.com/share/1HLYFSb8bx/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-lg bg-[#3b5998] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
+                  >
+                    <FaFacebook className="w-5 h-5" />
+                  </a>
+                  
+                  {/* Instagram - Personal */}
+                  <a 
+                    href="https://www.instagram.com/mohitbhardwaj_1" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-10 h-10 rounded-lg bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
+                  >
+                    <FaInstagram className="w-5 h-5" />
+                  </a>
 
-              {/* LinkedIn */}
-              <a 
-                href="https://www.linkedin.com/company/gengraphs-and-graphics-pvt-ltd/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-lg bg-[#0077b5] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
-              >
-                <FaLinkedin className="w-5 h-5" />
-              </a>
+                  {/* LinkedIn - Personal */}
+                  <a 
+                    href="https://www.linkedin.com/in/mohitbhardwaj-7b1863120/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-10 h-10 rounded-lg bg-[#0077b5] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
+                  >
+                    <FaLinkedin className="w-5 h-5" />
+                  </a>
+                </>
+              ) : (
+                <>
+                  {/* Facebook */}
+                  <a 
+                    href="#" 
+                    className="w-10 h-10 rounded-lg bg-[#3b5998] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
+                  >
+                    <FaFacebook className="w-5 h-5" />
+                  </a>
+                  
+                  {/* Instagram */}
+                  <a 
+                    href="https://www.instagram.com/gengraphs_and_graphics?igsh=MWxvZHc2Y2g0YjVpNQ==" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-10 h-10 rounded-lg bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
+                  >
+                    <FaInstagram className="w-5 h-5" />
+                  </a>
 
-              {/* X (formerly Twitter) */}
-              <a 
-                href="https://x.com/GENGRAPHS" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-lg bg-[#1a1a1a] border border-neutral-800/40 flex items-center justify-center text-zinc-700 hover:text-zinc-500 hover:scale-105 transition-all shadow-sm"
-              >
-                <FaXTwitter className="w-4 h-4" />
-              </a>
+                  {/* LinkedIn */}
+                  <a 
+                    href="https://www.linkedin.com/company/gengraphs-and-graphics-pvt-ltd/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-10 h-10 rounded-lg bg-[#0077b5] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-sm"
+                  >
+                    <FaLinkedin className="w-5 h-5" />
+                  </a>
 
-              {/* YouTube */}
-              <a 
-                href="https://www.youtube.com/@GENGRAPHS_AND_GRAPHICS" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-lg bg-[#a82020] flex items-center justify-center hover:opacity-90 hover:scale-105 transition-all shadow-sm"
-              >
-                <div className="flex flex-col items-center justify-center leading-none text-center font-sans select-none scale-90">
-                  <span className="text-white text-[9px] font-black uppercase tracking-tight">You</span>
-                  <span className="bg-white text-[#a82020] px-0.5 py-px rounded-[2px] text-[7px] font-bold uppercase tracking-tighter mt-0.5">Tube</span>
-                </div>
-              </a>
+                  {/* X (formerly Twitter) */}
+                  <a 
+                    href="https://x.com/GENGRAPHS" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-10 h-10 rounded-lg bg-[#1a1a1a] border border-neutral-800/40 flex items-center justify-center text-zinc-700 hover:text-zinc-500 hover:scale-105 transition-all shadow-sm"
+                  >
+                    <FaXTwitter className="w-4 h-4" />
+                  </a>
+
+                  {/* YouTube */}
+                  <a 
+                    href="https://www.youtube.com/@GENGRAPHS_AND_GRAPHICS" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-10 h-10 rounded-lg bg-[#a82020] flex items-center justify-center hover:opacity-90 hover:scale-105 transition-all shadow-sm"
+                  >
+                    <div className="flex flex-col items-center justify-center leading-none text-center font-sans select-none scale-90">
+                      <span className="text-white text-[9px] font-black uppercase tracking-tight">You</span>
+                      <span className="bg-white text-[#a82020] px-0.5 py-px rounded-[2px] text-[7px] font-bold uppercase tracking-tighter mt-0.5">Tube</span>
+                    </div>
+                  </a>
+                </>
+              )}
             </div>
 
           </div>
