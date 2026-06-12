@@ -329,7 +329,7 @@ export function Navbar() {
                             </div>
                             <div>
                               <div className="text-[8px] text-muted-foreground uppercase tracking-widest font-mono">Secure Email</div>
-                              <div className="text-[10px] font-semibold text-foreground"> info@gengraphsandgraphics.com</div>
+                              <div className="text-[10px] font-semibold text-foreground"> {isStripped ? "mohitbhardwaj8338@gmail.com" : "info@gengraphsandgraphics.com"}</div>
                             </div>
                           </div>
 

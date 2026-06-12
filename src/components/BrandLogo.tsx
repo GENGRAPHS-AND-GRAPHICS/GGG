@@ -34,7 +34,7 @@ export function BrandLogo({ className, size = 'md', customSizeClass, wrap = true
     >
       {isStripped ? (
         <>
-        <span className="font-serif text-3xl font-bold tracking-wider text-[#E0A154] dark:text-[#E0A154] transition-colors whitespace-nowrap">
+        <span className="font-serif text-3xl font-bold tracking-wider text-[#E0A154] dark:text-[#E0A154] transition-colors whitespace-nowrap mr-1">
           MOHIT
         </span>
          <span className="font-serif text-3xl font-bold tracking-wider text-[#414141] dark:text-[#414141] transition-colors whitespace-nowrap">

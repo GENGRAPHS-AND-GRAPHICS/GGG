@@ -7,6 +7,7 @@ import { FeaturedTemplates } from '@/components/FeaturedTemplates';
 import HeroParallaxDemo from '@/components/ui/hero-parallax-demo';
 import { Suspense } from 'react';
 import { Loader2 } from 'lucide-react';
+import { isStripped } from '@/lib/config';
 
 import { Metadata } from 'next';
 
@@ -86,7 +87,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover object-center opacity-35 scale-105"
           >
-            <source src="/video/bg_second_video.mp4" type="video/mp4" />
+            <source src={isStripped ? "/video/personal_bg_video.mp4" : "/video/bg_second_video.mp4"} type="video/mp4" />
           </video>
           {/* Seamless blending and high-contrast readability overlays */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B0908] via-[#0B0908]/75 to-[#0B0908]" />

@@ -10,6 +10,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { Highlighter } from "@/registry/magicui/highlighter";
+import { isStripped } from "@/lib/config";
 
 export interface Product {
   title: string;
@@ -229,7 +230,7 @@ export const Header = () => {
         <Highlighter action="underline" color="#E0A154">
           proven, cross-disciplinary expertise.
         </Highlighter>{" "}
-        At GENGRAPHS AND GRAPHICS PVT. LTD., our foundation is built on globally recognized credentials:{" "}
+        {isStripped ? "My" : "At GENGRAPHS AND GRAPHICS PVT. LTD., our"} foundation is built on globally recognized credentials:{" "}
         <span className="font-semibold text-foreground">
           PMP®, Microsoft Certified Power BI Analyst (PL-300), Airtable AI App builder, Admin, Wharton & ISB Product Management & Applied Business Analytics
         </span>{" "}
