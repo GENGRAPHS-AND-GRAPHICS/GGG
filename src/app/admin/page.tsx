@@ -4,15 +4,19 @@ import { useState } from "react";
 import { Shield, Plus, Loader2, Trash2 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, redirect } from "next/navigation";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getPostsAction, getSystemSettingsAction, updateSystemSettingAction, deletePostAction } from "./actions";
 import { AdminMetrics } from "./components/AdminMetrics";
 import { AssetGrid } from "./components/AssetGrid";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { isStripped } from "@/lib/config";
 
 export default function AdminPage() {
+    if (isStripped) {
+        redirect("/");
+    }
     const { data: sessionData, isPending } = authClient.useSession();
     const router = useRouter();
 
