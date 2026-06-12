@@ -4,8 +4,13 @@ import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { motion } from "framer-motion";
 import { Mail, Lock, User, ArrowRight, AlertCircle } from "lucide-react";
+import { redirect } from "next/navigation";
+import { isStripped } from "@/lib/config";
 
 export default function LoginPage() {
+    if (isStripped) {
+        redirect("/");
+    }
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
