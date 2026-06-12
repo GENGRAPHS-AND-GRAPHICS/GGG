@@ -166,7 +166,7 @@ export function Navbar() {
                     }}
                     className="text-foreground/70 hover:text-foreground bg-transparent hover:bg-accent focus:bg-accent data-[popup-open]:bg-accent data-[popup-open]:text-foreground transition-all cursor-pointer text-base font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"
                   >
-                    About Us
+                    {isStripped ? "About Me" : "About Us"}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent 
                     className="cursor-pointer p-5 w-[560px] md:w-[600px] lg:w-[640px]" 
@@ -204,7 +204,7 @@ export function Navbar() {
                             }}
                             className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 px-2.5 py-1.5 text-[9px] font-medium text-amber-500 transition-all border border-amber-500/20 group/btn"
                           >
-                            <span>About Us</span>
+                            <span>{isStripped ? "About Me" : "About Us"}</span>
                             <span className="transition-transform group-hover/btn:translate-x-0.5">→</span>
                           </Link>
                         </div>
@@ -383,9 +383,9 @@ export function Navbar() {
             <div className="w-px h-6" />
 
             {/* Auth State */}
-            {!isPending && !sessionData?.user && <RegisterDialog />}
+            {!isStripped && !isPending && !sessionData?.user && <RegisterDialog />}
 
-            {!isPending && sessionData?.user && (
+            {!isStripped && !isPending && sessionData?.user && (
               <div className="relative" ref={dropdownRef}>
                 {/* Avatar Button */}
                 <button

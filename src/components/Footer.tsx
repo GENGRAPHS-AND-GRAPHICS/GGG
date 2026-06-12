@@ -61,7 +61,9 @@ export function Footer() {
             <div className="space-y-2.5">
               <h4 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">GENGRAPHS AND GRAPHICS</h4>
               <div className="flex flex-col gap-1.5 text-muted-foreground/80">
-                <Link href="/about" className="hover:text-foreground transition-colors text-xs">About Us</Link>
+                <Link href="/about" className="hover:text-foreground transition-colors text-xs">
+                  {isStripped ? "About Me" : "About Us"}
+                </Link>
                 <Link href="/policies" className="hover:text-foreground transition-colors text-xs">Policies</Link>
                 <Link href="/faq" className="hover:text-foreground transition-colors text-xs">FAQ</Link>
                 <Link href="/contact" className="hover:text-foreground transition-colors text-xs">Contact Us</Link>

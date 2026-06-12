@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import { OrbitingCircles } from '@/components/ui/orbiting-circles';
 import { useRouter } from 'next/navigation';
 
+import { isStripped } from '@/lib/config';
+
 export function Hero() {
   const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
@@ -28,7 +30,7 @@ export function Hero() {
           playsInline
           className="w-full h-full object-cover object-center opacity-40 scale-105"
         >
-          <source src="/video/bg_video.mp4" type="video/mp4" />
+          <source src={isStripped ? "/video/personal_bg_video.mp4" : "/video/bg_video.mp4"} type="video/mp4" />
         </video>
         {/* Subtle dark gradient overlay to ensure text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-[#0B0908]/60 to-[#0B0908]" />
@@ -46,11 +48,21 @@ export function Hero() {
             className="pt-16 sm:pt-0 text-[42px] sm:text-[64px] md:text-[84px] lg:text-[100px] xl:text-[115px] font-serif tracking-tight font-semibold mb-6 leading-[0.95]"
             style={{ fontFamily: 'var(--font-serif), Garamond, Georgia, serif' }}
           >
-            <span className="text-[#E0A154]">GENGRAPHS</span> <br />
-            <span className="text-[#414141] dark:text-[#525252] transition-colors">AND GRAPHICS PVT. LTD.</span>
-            <sup className="text-[0.3em] text-[#414141] dark:text-[#525252] ml-[0.05em] font-sans font-normal align-super">
-              ™
-            </sup>
+            {isStripped ? (
+              <>
+                <span className="text-[0.45em] text-[#414141] dark:text-[#525252] block font-light leading-none mb-2 select-none">I’m</span>
+                <span className="text-[#E0A154]">MOHIT</span> <br />
+                <span className="text-[#414141] dark:text-[#525252] transition-colors">BHARDWAJ</span>
+              </>
+            ) : (
+              <>
+                <span className="text-[#E0A154]">GENGRAPHS</span> <br />
+                <span className="text-[#414141] dark:text-[#525252] transition-colors">AND GRAPHICS PVT. LTD.</span>
+                <sup className="text-[0.3em] text-[#414141] dark:text-[#525252] ml-[0.05em] font-sans font-normal align-super">
+                  ™
+                </sup>
+              </>
+            )}
           </motion.h1>
 
           <motion.div
