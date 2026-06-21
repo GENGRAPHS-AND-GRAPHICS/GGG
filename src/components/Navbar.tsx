@@ -188,7 +188,7 @@ export function Navbar() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="text-foreground font-medium hover:text-amber-500 transition-colors underline decoration-dotted underline-offset-2"
+                              className="text-foreground font-medium hover:text-amber-500 transition-colors underline decoration-dotted underline-offset-2 whitespace-nowrap"
                             >
                               Mohit Bhardwaj
                             </a>

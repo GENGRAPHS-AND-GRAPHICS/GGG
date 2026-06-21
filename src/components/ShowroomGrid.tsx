@@ -84,9 +84,11 @@ export function ShowroomGrid({ posts, limit }: ShowroomGridProps) {
                     </span>
                   </div>
 
-                  <div className="absolute top-3 right-3 z-30">
-                    <PriceBadge price={post.price} />
-                  </div>
+                  {!isStripped && (
+                    <div className="absolute top-3 right-3 z-30">
+                      <PriceBadge price={post.price} />
+                    </div>
+                  )}
                 </div>
 
                 {/* Card Title Info Block */}

@@ -23,7 +23,7 @@ export function BrandLogo({ className, size = 'md', customSizeClass, wrap = true
     <span 
       className={cn(
         "font-serif font-semibold select-none leading-tight inline-flex items-center",
-        wrap ? "flex-wrap" : "whitespace-nowrap",
+        wrap ? "flex-nowrap" : "whitespace-nowrap",
         sizeClasses[size],
         className
       )}

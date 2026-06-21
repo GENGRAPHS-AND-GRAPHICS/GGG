@@ -117,7 +117,7 @@ export function Hero() {
   <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-0 flex items-end lg:items-center justify-center w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[420px] pointer-events-none z-40">
     
     {/* Orbiting Circles — positioned at face level (top 15-20% of container) */}
-    <div className="absolute top-[15%] lg:top-[20%] left-1/2 -translate-x-1/2 -ml-6 sm:-ml-8 lg:-ml-10 z-[30] pointer-events-none">
+    <div className="absolute top-[15%] lg:top-[20%] left-1/2 -translate-x-1/2 -ml-6 sm:-ml-8 lg:-ml-10 z-[30] pointer-events-none w-0 h-0">
       {/* Inner Orbit */}
       <OrbitingCircles
         className="border-none bg-transparent"
