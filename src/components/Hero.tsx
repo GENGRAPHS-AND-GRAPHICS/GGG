@@ -71,23 +71,31 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mb-8 max-w-[520px]"
           >
-            <p className="text-muted-foreground text-[13px] lg:text-[14px] leading-relaxed font-light italic">
-              <strong className="text-[#E0A154] not-italic font-semibold">Founder’s note:</strong> “Established in 2025, GENGRAPHS AND GRAPHICS PVT. LTD. is a dynamic business solutions provider dedicated to empowering both B2B and B2C clients through tailored, high-impact strategies. We specialize in the seamless integration of Data Analytics, Graphic Design, and Project Management, transforming complex data into actionable insights and visually compelling narratives. By bridging the gap between technical analytics and creative design, and backing it with rigorous project execution, our team delivers custom-engineered solutions designed to drive growth, streamline operations, and elevate your brand's competitive edge in the modern market.”
-            </p>
-            <div className="mt-2 flex items-center justify-end gap-2">
-              <span className="text-muted-foreground text-[13px] lg:text-[14px]">—</span>
-              <a 
-                href="https://www.linkedin.com/in/mohit-bhardwaj-7b1863120/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[13px] lg:text-[14px] font-semibold text-[#E0A154] hover:text-amber-400 transition-colors inline-flex items-center gap-1.5"
-              >
-                Mohit Bhardwaj
-                <svg className="w-4 h-4 text-[#0A66C2] dark:text-[#0A66C2] hover:opacity-80 transition-opacity" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </a>
-            </div>
+            {isStripped ? (
+              <p className="text-muted-foreground text-[13px] lg:text-[14px] leading-relaxed font-light italic">
+                <strong className="text-[#E0A154] not-italic font-semibold">About Me:</strong> &ldquo;With 9 years of professional experience, I bridge the gap between complex data and compelling human stories. I thrive at the intersection of analytical precision and creative design, helping organizations turn raw information into actionable strategy. Currently, I serve as a Team Leader at Emeritus, holding an MBA from ICFAI Business School, Hyderabad, and Executive Alumni status from ISB, Hyderabad — supported by certifications as a Microsoft Certified Power BI Data Analyst, PMP® Certified Professional, and Airtable certified. Beyond the corporate landscape, I am a creative soul, an author of REALATIONSHIPS, a model, and a fitness enthusiast who believes a sharp mind requires an active, resilient body.&rdquo;
+              </p>
+            ) : (
+              <>
+                <p className="text-muted-foreground text-[13px] lg:text-[14px] leading-relaxed font-light italic">
+                  <strong className="text-[#E0A154] not-italic font-semibold">Founder&apos;s note:</strong> &ldquo;Established in 2025, GENGRAPHS AND GRAPHICS PVT. LTD. is a dynamic business solutions provider dedicated to empowering both B2B and B2C clients through tailored, high-impact strategies. We specialize in the seamless integration of Data Analytics, Graphic Design, and Project Management, transforming complex data into actionable insights and visually compelling narratives. By bridging the gap between technical analytics and creative design, and backing it with rigorous project execution, our team delivers custom-engineered solutions designed to drive growth, streamline operations, and elevate your brand&apos;s competitive edge in the modern market.&rdquo;
+                </p>
+                <div className="mt-2 flex items-center justify-end gap-2">
+                  <span className="text-muted-foreground text-[13px] lg:text-[14px]">—</span>
+                  <a 
+                    href="https://www.linkedin.com/in/mohit-bhardwaj-7b1863120/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[13px] lg:text-[14px] font-semibold text-[#E0A154] hover:text-amber-400 transition-colors inline-flex items-center gap-1.5"
+                  >
+                    Mohit Bhardwaj
+                    <svg className="w-4 h-4 text-[#0A66C2] dark:text-[#0A66C2] hover:opacity-80 transition-opacity" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                  </a>
+                </div>
+              </>
+            )}
           </motion.div>
 
           <motion.div
