@@ -15,6 +15,7 @@ import { getMediaUrl, formatPrice, hasPaidPrice } from '@/lib/utils';
 import { AspectBadge } from '@/components/shared/AspectBadge';
 import { useQuery } from '@tanstack/react-query';
 import { useRazorpay } from '@/lib/useRazorpay';
+import { isStripped } from '@/lib/config';
 
 export default function TemplateDetail() {
   const { data: sessionData } = authClient.useSession();
@@ -299,6 +300,7 @@ export default function TemplateDetail() {
           </div>
 
           {/* Sticky Commercial Checklist Sidebar Block Right */}
+          {!isStripped && (
           <div className="lg:col-span-4 lg:sticky lg:top-8">
             <div className="bg-card border border-border p-5 rounded-2xl space-y-5 backdrop-blur-md shadow-lg">
               <div>
@@ -340,6 +342,7 @@ export default function TemplateDetail() {
 
             </div>
           </div>
+          )}
 
         </div>
       </div>

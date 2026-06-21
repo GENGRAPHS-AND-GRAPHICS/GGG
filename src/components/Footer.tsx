@@ -110,7 +110,8 @@ export function Footer() {
 
             {/* Copyright Statement */}
             <p className="text-center text-[10px] text-muted-foreground/50 font-mono tracking-wide">
-              © {new Date().getFullYear()} {isStripped ? "Mohit Bhardwaj. All Rights Reserved." : "GENGRAPHS AND GRAPHICS PVT LTD™. ALL RIGHTS RESERVED."}
+              © {new Date().getFullYear()} {isStripped ? "Mohit Bhardwaj. All Rights Reserved." : "GENGRAPHS AND GRAPHICS PVT LTD™. ALL RIGHTS RESERVED."}{" "}
+              <span className="text-muted-foreground/40">·</span>{" "}GSTIN 06AAMCG2222P1ZD
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-2.5 pt-2">

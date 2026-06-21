@@ -10,6 +10,7 @@ import { AspectBadge } from '@/components/shared/AspectBadge';
 import { PriceBadge } from '@/components/shared/PriceBadge';
 import { getActiveThumbnail, hasPaidPrice } from '@/lib/utils';
 import { useRazorpay } from '@/lib/useRazorpay';
+import { isStripped } from '@/lib/config';
 
 interface ShowroomGridProps {
   posts: any[];
@@ -98,7 +99,7 @@ export function ShowroomGrid({ posts, limit }: ShowroomGridProps) {
                   </div>
                   <div className="flex items-center gap-1.5 shrink-0">
                     {/* Purchase Button */}
-                    {isPaid && (
+                    {isPaid && !isStripped && (
                       <button
                         onClick={(e) => handlePurchase(e, post)}
                         disabled={status === 'processing' || status === 'success'}
