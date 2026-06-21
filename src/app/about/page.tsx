@@ -1,12 +1,98 @@
 import Link from 'next/link';
 import { BarChart3, Layers, Paintbrush, ShieldCheck, Trophy, Sparkles, ArrowRight } from 'lucide-react';
+import { isStripped } from '@/lib/config';
 
-export const metadata = {
-  title: "About Us - GENGRAPHS AND GRAPHICS PVT LTD™",
-  description: "Learn more about GENGRAPHS AND GRAPHICS PVT LTD™, founded by Mohit Bhardwaj. Discover our services in Data Analytics, Business Intelligence, and UX/UI Design.",
-};
+
+export async function generateMetadata() {
+  if (isStripped) {
+    return {
+      title: "About Me - Mohit Bhardwaj",
+      description: "With 9 years of professional experience, Mohit Bhardwaj bridges the gap between complex data and compelling human stories — Team Leader at Emeritus, MBA from ICFAI, ISB Executive Alumni, Microsoft Certified Power BI Data Analyst, PMP® Certified.",
+    };
+  }
+  return {
+    title: "About Us - GENGRAPHS AND GRAPHICS PVT LTD™",
+    description: "Learn more about GENGRAPHS AND GRAPHICS PVT LTD™, founded by Mohit Bhardwaj. Discover our services in Data Analytics, Business Intelligence, and UX/UI Design.",
+  };
+}
 
 export default function AboutPage() {
+  if (isStripped) {
+    return (
+      <div className="relative w-full min-h-screen bg-transparent text-foreground overflow-x-hidden selection:bg-amber-500/30 flex flex-col justify-between">
+        {/* Background glow effects */}
+        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[50%] bg-amber-600/10 blur-[130px] rounded-full pointer-events-none" />
+        <div className="absolute top-[30%] right-[-10%] w-[50%] h-[50%] bg-amber-600/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-[10%] left-[20%] w-[40%] h-[40%] bg-amber-600/5 blur-[110px] rounded-full pointer-events-none" />
+
+        <main className="relative z-10 flex-grow pt-32 sm:pt-40 pb-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            {/* Tag */}
+            <div className="flex flex-col items-center text-center mb-12">
+              <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-medium text-amber-500 mb-4 backdrop-blur-md">
+                <span>About Me</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight mb-4 leading-tight">
+                <span className="text-[#E0A154]">Mohit </span>
+                <span className="bg-gradient-to-r from-[#414141] to-neutral-400 bg-clip-text text-transparent">Bhardwaj</span>
+              </h1>
+              <div className="h-0.5 w-12 bg-amber-500 rounded-full" />
+            </div>
+
+            {/* Bio paragraphs */}
+            <div className="space-y-6 text-sm text-muted-foreground leading-relaxed">
+              <p>
+                With <span className="text-foreground font-semibold">9 years of professional experience</span>, I bridge the gap between complex data and compelling human stories. I thrive at the intersection of analytical precision and creative design, helping organizations turn raw information into actionable strategy.
+              </p>
+
+              <p>
+                Currently, I serve as a <span className="text-foreground font-semibold">Team Leader at Emeritus</span>, where I guide high-performing teams toward achieving strategic goals. My professional journey is built on a strong academic foundation, holding an <span className="text-foreground font-semibold">MBA from ICFAI Business School, Hyderabad</span>, and achieving <span className="text-foreground font-semibold">Executive Alumni status from the Indian School of Business (ISB), Hyderabad</span>. I am further supported by rigorous professional certifications, including being a <span className="text-amber-500 font-semibold">Microsoft Certified Power BI Data Analyst</span>, a <span className="text-amber-500 font-semibold">PMP® Certified Professional</span>, and <span className="text-amber-500 font-semibold">Airtable certified</span>.
+              </p>
+
+              <p>
+                Beyond the corporate landscape, I am a creative soul—I enjoy exploring the nuances of <span className="text-foreground font-semibold">graphic design</span> and have authored a book, <span className="italic text-[#E0A154] font-semibold">REALATIONSHIPS</span>. My diverse experiences also extend to the world of fashion, where I have worked as a <span className="text-foreground font-semibold">model</span> for both perfume brands and merchandise.
+              </p>
+
+              <p>
+                When I&apos;m not analyzing data or designing graphics, you&apos;ll find me pursuing my passion for fitness and adventure. Whether it&apos;s intense <span className="text-foreground font-semibold">boxing sessions</span>, hitting the gym, or embarking on <span className="text-foreground font-semibold">long-distance bike expeditions</span>, I believe that a sharp mind requires an active, resilient body.
+              </p>
+            </div>
+
+            {/* Credential badges */}
+            <div className="mt-12 flex flex-wrap gap-3 justify-center">
+              {[
+                "MBA · ICFAI Business School",
+                "Executive Alumni · ISB Hyderabad",
+                "Microsoft Certified · Power BI",
+                "PMP® Certified",
+                "Airtable Certified",
+                "Team Leader · Emeritus",
+              ].map((badge) => (
+                <span
+                  key={badge}
+                  className="inline-flex items-center rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-[10px] font-medium text-amber-400 backdrop-blur-md"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="mt-12 flex justify-center">
+              <Link
+                href="/products"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 px-5 py-2.5 text-xs font-semibold text-black hover:-translate-y-0.5 transition-all shadow-[0_10px_20px_rgba(245,158,11,0.25)] hover:shadow-[0_10px_25px_rgba(245,158,11,0.4)] cursor-pointer"
+              >
+                <span>Browse My Work</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full min-h-screen bg-transparent text-foreground overflow-x-hidden selection:bg-amber-500/30 flex flex-col justify-between">
       {/* Background glow effects */}
