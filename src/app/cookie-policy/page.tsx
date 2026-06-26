@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { ArrowLeft, Cookie, Mail, Globe, Shield, ExternalLink, Settings } from 'lucide-react';
+import { isStripped } from '@/lib/config';
+
 
 export const metadata = {
   title: "Cookie Policy - GENGRAPHS AND GRAPHICS PVT LTD™",
@@ -26,7 +28,9 @@ export default function CookiePolicyPage() {
             </h1>
             
             <p className="max-w-xl text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Transparent specifications regarding cookie technology and site telemetry used by GENGRAPHS AND GRAPHICS.
+              {isStripped
+                ? "This Cookie Policy explains how cookies and similar technologies are used on MOHIT BHARDWAJ ‘s personal portfolio website. By continuing to browse or use this site, you agree to the use of cookies as described in this policy. "
+                : "Transparent specifications regarding cookie technology and site telemetry used by GENGRAPHS AND GRAPHICS."}
             </p>
           </div>
 
@@ -52,7 +56,13 @@ export default function CookiePolicyPage() {
                 
                 {/* Intro */}
                 <p className="text-foreground/90 font-medium">
-                  At <span className="text-foreground font-semibold">GENGRAPHS AND GRAPHICS PVT. LTD.</span>, we believe in being clear and open about how we collect and use data related to you. This Cookie Policy explains what cookies are, how we use them, and your choices regarding their use.
+                  {isStripped ? (
+                    "I believe in being clear and open about how I collect and use data related to you. This Cookie Policy explains what cookies are, how I use them, and your choices regarding their use. "
+                  ) : (
+                    <>
+                      At <span className="text-foreground font-semibold">GENGRAPHS AND GRAPHICS PVT. LTD.</span>, we believe in being clear and open about how we collect and use data related to you. This Cookie Policy explains what cookies are, how we use them, and your choices regarding their use.
+                    </>
+                  )}
                 </p>
 
                 {/* Section 1: What are Cookies? */}
@@ -110,10 +120,12 @@ export default function CookiePolicyPage() {
                 {/* Section 2: How GENGRAPHS AND GRAPHICS Uses Cookies */}
                 <div className="space-y-4 pt-4 border-t border-border/40">
                   <h3 className="text-base font-serif font-bold text-foreground flex items-center gap-2">
-                    <span className="text-[#E0A154] font-mono">2.</span> How GENGRAPHS AND GRAPHICS Uses Cookies
+                    <span className="text-[#E0A154] font-mono">2.</span> {isStripped ? "How I use Cookies " : "How GENGRAPHS AND GRAPHICS Uses Cookies"}
                   </h3>
                   <p>
-                    We use cookies to ensure our website functions properly, to understand how visitors interact with our portfolio of visual designs and data analytics, and to improve our services. The cookies we use generally fall into the following categories:
+                    {isStripped
+                      ? "I use cookies to ensure that my website functions properly, to understand how visitors interact with my portfolio of visual designs and data analytics, and to improve my services. The cookies I use generally fall into the following categories:"
+                      : "We use cookies to ensure our website functions properly, to understand how visitors interact with our portfolio of visual designs and data analytics, and to improve our services. The cookies we use generally fall into the following categories:"}
                   </p>
 
                   <ul className="space-y-3.5 list-none pl-0">
@@ -144,20 +156,26 @@ export default function CookiePolicyPage() {
                     <span className="text-[#E0A154] font-mono">3.</span> Third-Party Cookies
                   </h3>
                   <p>
-                    In some cases, we also use cookies provided by trusted third parties. This is especially relevant if you are interacting with embedded content on our site:
+                    {isStripped
+                      ? "In some cases, I also use cookies provided by trusted third parties. This is especially relevant if you are interacting with embedded content on my site:"
+                      : "In some cases, we also use cookies provided by trusted third parties. This is especially relevant if you are interacting with embedded content on our site:"}
                   </p>
 
                   <div className="space-y-3.5 pl-4 border-l border-amber-500/20">
                     <div>
                       <strong className="text-foreground block mb-1">Embedded Media and Portfolios:</strong>
                       <p className="text-[13px]">
-                        When you view our interactive data visualizations (such as embedded Tableau dashboards) or our cinematic logo animations, the platforms hosting this content may set their own cookies to track engagement.
+                        {isStripped
+                          ? "When you view my interactive data visualizations (such as embedded Power BI dashboards) or my cinematic logo animations, the platforms hosting this content may set their own cookies to track engagement."
+                          : "When you view our interactive data visualizations (such as embedded Tableau dashboards) or our cinematic logo animations, the platforms hosting this content may set their own cookies to track engagement."}
                       </p>
                     </div>
                     <div>
                       <strong className="text-foreground block mb-1">Site Analytics:</strong>
                       <p className="text-[13px]">
-                        We may use third-party analytics tools (like Google Analytics) to help us understand how you use the site and ways we can improve your experience. These cookies may track things such as how long you spend on the site and the pages that you visit.
+                        {isStripped
+                          ? "I may use third-party analytics tools (like Google Analytics) to understand how to use the site and ways I can improve your experience. These cookies may track things such as how long you spend on the site and the pages that you visit."
+                          : "We may use third-party analytics tools (like Google Analytics) to help us understand how you use the site and ways we can improve your experience. These cookies may track things such as how long you spend on the site and the pages that you visit."}
                       </p>
                     </div>
                   </div>
@@ -206,38 +224,44 @@ export default function CookiePolicyPage() {
                     <span className="text-[#E0A154] font-mono">5.</span> Updates to This Policy
                   </h3>
                   <p>
-                    We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Please revisit this page periodically to stay aware of any changes.
+                    {isStripped
+                      ? "I may update this Cookie Policy from time to time to reflect changes in my practices or for other operational, legal, or regulatory reasons. Please revisit this page periodically to stay aware of any changes."
+                      : "We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Please revisit this page periodically to stay aware of any changes."}
                   </p>
                 </div>
 
                 {/* Section 6: Contact Us */}
                 <div className="space-y-4 pt-6 border-t border-border/40">
                   <h3 className="text-base font-serif font-bold text-foreground flex items-center gap-2">
-                    <span className="text-[#E0A154] font-mono">6.</span> Contact Us
+                    <span className="text-[#E0A154] font-mono">6.</span> {isStripped ? "Contact ME:" : "Contact Us"}
                   </h3>
                   <p>
-                    If you have any questions or concerns about our use of cookies or this Cookie Policy, please contact us at:
+                    {isStripped
+                      ? "If you have any questions or concerns about our use of cookies or this Cookie Policy, please contact me at:"
+                      : "If you have any questions or concerns about our use of cookies or this Cookie Policy, please contact us at:"}
                   </p>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                    <a href="mailto:info@gengraphsandgraphics.com" className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/40 hover:border-amber-500/20 hover:bg-amber-500/5 transition-all text-foreground group">
+                    <a href={isStripped ? "mailto:mohitbhardwaj8338@gmail.com" : "mailto:info@gengraphsandgraphics.com"} className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/40 hover:border-amber-500/20 hover:bg-amber-500/5 transition-all text-foreground group">
                       <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 border border-amber-500/20">
                         <Mail className="w-4 h-4" />
                       </div>
                       <div className="flex flex-col">
                         <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground font-mono">Direct Email</span>
-                        <span className="text-xs font-semibold group-hover:text-[#E0A154] transition-colors">info@gengraphsandgraphics.com</span>
+                        <span className="text-xs font-semibold group-hover:text-[#E0A154] transition-colors">
+                          {isStripped ? "mohitbhardwaj8338@gmail.com" : "info@gengraphsandgraphics.com"}
+                        </span>
                       </div>
                     </a>
 
-                    <a href="https://www.gengraphsandgraphics.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/40 hover:border-amber-500/20 hover:bg-amber-500/5 transition-all text-foreground group">
+                    <a href={isStripped ? "https://www.imohitbhardwaj.com" : "https://www.gengraphsandgraphics.com"} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border/40 hover:border-amber-500/20 hover:bg-amber-500/5 transition-all text-foreground group">
                       <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 border border-amber-500/20">
                         <Globe className="w-4 h-4" />
                       </div>
                       <div className="flex flex-col">
                         <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground font-mono">Official Website</span>
                         <span className="text-xs font-semibold flex items-center gap-1 group-hover:text-[#E0A154] transition-colors">
-                          www.gengraphsandgraphics.com <ExternalLink className="w-3 h-3 opacity-50" />
+                          {isStripped ? "www.imohitbhardwaj.com" : "www.gengraphsandgraphics.com"} <ExternalLink className="w-3 h-3 opacity-50" />
                         </span>
                       </div>
                     </a>

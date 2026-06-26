@@ -159,67 +159,78 @@ export function Navbar() {
               <NavigationMenuList>
                 {/* About Us Nav Item */}
                 <NavigationMenuItem value="about">
-                  <NavigationMenuTrigger
-                    onClick={() => {
-                      router.push('/about');
-                      setOpenMenuValue(null);
-                    }}
-                    className="text-foreground/70 hover:text-foreground bg-transparent hover:bg-accent focus:bg-accent data-[popup-open]:bg-accent data-[popup-open]:text-foreground transition-all cursor-pointer text-base font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"
-                  >
-                    {isStripped ? "About Me" : "About Us"}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent 
-                    className="cursor-pointer p-5 w-[560px] md:w-[600px] lg:w-[640px]" 
-                    onClick={() => {
-                      router.push("/about");
-                      setOpenMenuValue(null);
-                    }}
-                  >
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
-                      <div className="md:col-span-2 flex flex-col justify-between rounded-xl bg-gradient-to-br from-amber-950/20 via-popover to-background p-4 border border-border/40 shadow-xl">
-                        <div>
-                          <h4 className="text-xs font-semibold text-foreground tracking-wide uppercase bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">
-                            Gengraphs &amp; Graphics
-                          </h4>
-                          <p className="mt-2 text-[10px] text-muted-foreground leading-relaxed">
-                            Founded in 2026 by{" "}
-                            <a
-                              href="https://www.linkedin.com/in/mohit-bhardwaj-7b1863120/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              className="text-foreground font-medium hover:text-amber-500 transition-colors underline decoration-dotted underline-offset-2 whitespace-nowrap"
-                            >
-                              Mohit Bhardwaj
-                            </a>
-                            .
-                          </p>
-                        </div>
-                        <div className="mt-4 pt-4 border-t border-border/40">
-                          <Link
-                            href="/about"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setOpenMenuValue(null);
-                            }}
-                            className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 px-2.5 py-1.5 text-[9px] font-medium text-amber-500 transition-all border border-amber-500/20 group/btn"
-                          >
-                            <span>{isStripped ? "About Me" : "About Us"}</span>
-                            <span className="transition-transform group-hover/btn:translate-x-0.5">→</span>
-                          </Link>
-                        </div>
-                      </div>
+                  {isStripped ? (
+                    <Link
+                      href="/about"
+                      className="text-foreground/70 hover:text-foreground bg-transparent hover:bg-accent focus:bg-accent transition-all cursor-pointer text-base font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"
+                    >
+                      About Me
+                    </Link>
+                  ) : (
+                    <>
+                      <NavigationMenuTrigger
+                        onClick={() => {
+                          router.push('/about');
+                          setOpenMenuValue(null);
+                        }}
+                        className="text-foreground/70 hover:text-foreground bg-transparent hover:bg-accent focus:bg-accent data-[popup-open]:bg-accent data-[popup-open]:text-foreground transition-all cursor-pointer text-base font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"
+                      >
+                        About Us
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent 
+                        className="cursor-pointer p-5 w-[560px] md:w-[600px] lg:w-[640px]" 
+                        onClick={() => {
+                          router.push("/about");
+                          setOpenMenuValue(null);
+                        }}
+                      >
+                        <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
+                          <div className="md:col-span-2 flex flex-col justify-between rounded-xl bg-gradient-to-br from-amber-950/20 via-popover to-background p-4 border border-border/40 shadow-xl">
+                            <div>
+                              <h4 className="text-xs font-semibold text-foreground tracking-wide uppercase bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">
+                                Gengraphs &amp; Graphics
+                              </h4>
+                              <p className="mt-2 text-[10px] text-muted-foreground leading-relaxed">
+                                Founded in 2026 by{" "}
+                                <a
+                                  href="https://www.linkedin.com/in/mohit-bhardwaj-7b1863120/"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="text-foreground font-medium hover:text-amber-500 transition-colors underline decoration-dotted underline-offset-2 whitespace-nowrap"
+                                >
+                                  Mohit Bhardwaj
+                                </a>
+                                .
+                              </p>
+                            </div>
+                            <div className="mt-4 pt-4 border-t border-border/40">
+                              <Link
+                                href="/about"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setOpenMenuValue(null);
+                                }}
+                                className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 px-2.5 py-1.5 text-[9px] font-medium text-amber-500 transition-all border border-amber-500/20 group/btn"
+                              >
+                                <span>About Us</span>
+                                <span className="transition-transform group-hover/btn:translate-x-0.5">→</span>
+                              </Link>
+                            </div>
+                          </div>
 
-                      <div className="md:col-span-3 flex flex-col justify-between gap-3 text-foreground/70 text-[10px] leading-relaxed">
-                        <p>
-                          Offers services in <span className="text-foreground font-medium">Data analytics</span>, <span className="text-foreground font-medium">Business Intelligence</span>, and <span className="text-foreground font-medium">Graphic designing</span>, drawing on deep expertise in Power BI, Tableau, Advanced Excel, and Project Management. Every project is approached like a mini-strategy engagement: understanding your goals, mapping the right KPIs, and delivering visuals that executives can act on in minutes, not hours.
-                        </p>
-                        <p>
-                          Alongside data, we offer end-to-end visual and product design—brand-aligned graphic design, presentation and pitch-deck design, and UX/UI for dashboards, internal tools, and business websites—so your insights and ideas look as powerful as they look premium.
-                        </p>
-                      </div>
-                    </div>
-                  </NavigationMenuContent>
+                          <div className="md:col-span-3 flex flex-col justify-between gap-3 text-foreground/70 text-[10px] leading-relaxed">
+                            <p>
+                              Offers services in <span className="text-foreground font-medium">Data analytics</span>, <span className="text-foreground font-medium">Business Intelligence</span>, and <span className="text-foreground font-medium">Graphic designing</span>, drawing on deep expertise in Power BI, Tableau, Advanced Excel, and Project Management. Every project is approached like a mini-strategy engagement: understanding your goals, mapping the right KPIs, and delivering visuals that executives can act on in minutes, not hours.
+                            </p>
+                            <p>
+                              Alongside data, we offer end-to-end visual and product design—brand-aligned graphic design, presentation and pitch-deck design, and UX/UI for dashboards, internal tools, and business websites—so your insights and ideas look as powerful as they look premium.
+                            </p>
+                          </div>
+                        </div>
+                      </NavigationMenuContent>
+                    </>
+                  )}
                 </NavigationMenuItem>
 
                 {/* Products Nav Item */}

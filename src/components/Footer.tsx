@@ -64,7 +64,9 @@ export function Footer() {
                 <Link href="/about" className="hover:text-foreground transition-colors text-xs">
                   {isStripped ? "About Me" : "About Us"}
                 </Link>
-                <Link href="/policies" className="hover:text-foreground transition-colors text-xs">Policies</Link>
+                {!isStripped && (
+                  <Link href="/policies" className="hover:text-foreground transition-colors text-xs">Policies</Link>
+                )}
                 <Link href="/faq" className="hover:text-foreground transition-colors text-xs">FAQ</Link>
                 <Link href="/contact" className="hover:text-foreground transition-colors text-xs">
                   {isStripped ? "Contact Me" : "Contact Us"}
@@ -98,14 +100,18 @@ export function Footer() {
             {/* Compliance Links */}
             <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 text-[10px] sm:text-xs text-muted-foreground/60 font-medium">
               <Link href="/cookie-policy" className="hover:text-foreground transition-colors">Cookie Policy</Link>
-              <span className="text-border/60">|</span>
-              <Link href="/disclaimer" className="hover:text-foreground transition-colors">Disclaimer</Link>
-              <span className="text-border/60">|</span>
-              <Link href="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</Link>
-              <span className="text-border/60">|</span>
-              <Link href="/report-vulnerability" className="hover:text-foreground transition-colors">Report a Vulnerability</Link>
-              <span className="text-border/60">|</span>
-              <Link href="/accessibility-policy" className="hover:text-foreground transition-colors">Accessibility Policy</Link>
+              {!isStripped && (
+                <>
+                  <span className="text-border/60">|</span>
+                  <Link href="/disclaimer" className="hover:text-foreground transition-colors">Disclaimer</Link>
+                  <span className="text-border/60">|</span>
+                  <Link href="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</Link>
+                  <span className="text-border/60">|</span>
+                  <Link href="/report-vulnerability" className="hover:text-foreground transition-colors">Report a Vulnerability</Link>
+                  <span className="text-border/60">|</span>
+                  <Link href="/accessibility-policy" className="hover:text-foreground transition-colors">Accessibility Policy</Link>
+                </>
+              )}
             </div>
 
             {/* Copyright Statement */}
